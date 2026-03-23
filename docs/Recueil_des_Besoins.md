@@ -32,7 +32,7 @@
     - <b>[iv. Quelles sont les autres exigences du processus ? (par exemple, tests, installation, etc.)](#p5aiv)</b>
     - <b>[v. Quelles sont les dépendances du projet ?](#p5av)</b>
 - <b>[b) Performance](#p5b)</b>
-- <b>[c) Operations, security, documentation](#p5c)</b>
+- <b>[c) Opérations, sécurité, documentation](#p5c)</b>
 - <b>[d) Facilité d'utilisation et convivialité](#p5d)</b>
 - <b>[e) Maintenance et portabilité](#p5e)</b>
 ### [VI – Ressources humaines, questions juridiques, politiques et organisationnelles](#p6)
@@ -54,7 +54,7 @@
       
   - **Scope:**
     - **Inclusion:**
-      - Conception et mise en œuvre d'une interface web permettant aux utilisateurs de soumettre des documents et visualiser leur etat.
+      - Conception et mise en œuvre d'une interface web permettant aux utilisateurs de soumettre des documents et visualiser leur état.
       - Mise en œuvre de l'authentification des utilisateurs, de la gestion des sessions et des contrôles d'administration pour la supervision du système.
       - Mesures de conformité en matière de protection des données et de respect de la vie privée selon le RGPD.
 
@@ -73,7 +73,7 @@
     - Ce projet vise à fournir une solution pratique pour réaliser des demandes de reprographie.
     
   - **Expected Outcomes:**
-    - Une plateforme web entièrement fonctionnelle qui récupére et traite des demandes de reprographie de fichier.
+    - Une plateforme web entièrement fonctionnelle qui récupère et traite des demandes de reprographie de fichiers.
     - Des fonctionnalités améliorées de sécurité et de gestion des utilisateurs qui protègent les données des utilisateurs et garantissent l'intégrité et la fiabilité du système.
     
 <div align="right">
@@ -127,7 +127,7 @@
 
     - <u>Le visiteur (un ou plusieurs) </u>
         > - S’inscrit / Crée un compte
-        > - Accèder à la page d'accueil
+        > - Accéder à la page d'accueil
 
   <br>
 
@@ -141,15 +141,15 @@
     
   <br>
 
-    - <u>Le reprographeur (un ou plusieurs) :</u>
+    - <u>Le reprographe (un ou plusieurs) :</u>
         > - Est un utilisateur, mais avec des droits d'administrateur supplémentaires
-        > - Voir toutes les demandes réaliser par les utilisateurs
+        > - Voir toutes les demandes réalisées par les utilisateurs
         > - Télécharger des documents
         > - Changer l'état d'une demande (En attente -> Préparation -> Finie)
 
   <br>
 
-    - <u>L'administrator (seulement un) :</u>
+    - <u>L'administrateur (seulement un) :</u>
         > - Est un utilisateur, mais avec des droits d'administrateur supplémentaires
         > - Configurer le serveur
         > - Modifier la base de données
@@ -160,7 +160,7 @@
 
 - **<a id="p3b"></a>b) Cas d'utilisation stratégiques.**
 
-  **A Ajouter aprés les Cu**
+  **À ajouter après les Cu**
 
 <div align="right">
     <a href="#Sommaire">⮐ retour au Sommaire</a>
@@ -170,7 +170,7 @@
 
 - <b><a id="p3c"></a>c) User use cases.</b>
 
-  **A Ajouter aprés les Cu**
+  **À ajouter après les Cu**
 
 <div align="right">
     <a href="#Sommaire">⮐ retour au Sommaire</a>
@@ -180,7 +180,7 @@
 
 - <b><a id="p3d"></a>d) System use cases.</b>
 
-  **A Ajouter aprés les Cu**
+  **À ajouter après les Cu**
 
 <div align="right">
     <a href="#Sommaire">⮐ retour au Sommaire</a>
@@ -194,8 +194,8 @@
     L’application doit utiliser : SQL, HTML, CSS, JS, Express.<br>
     - SQL est le langage utilisé pour travailler avec un SGBD.<br>
     - Le HTML et le CSS sont utilisés pour créer les pages du site web.<br>
-    - Express est un Framework permettant de créer des serveur web, gérer les routes, les requêtes HTTP et la communication entre le site web et la base de données<br>
-    - JavaScript (JS) est utiliser pour rendre les pages web interactives et gérer les actions de l'utilisateur côté client (navigation, formulaires, requêtes, etc.).<br>
+    - Express est un Framework permettant de créer des serveurs web, gérer les routes, les requêtes HTTP et la communication entre le site web et la base de données<br>
+    - JavaScript (JS) est utilisé pour rendre les pages web interactives et gérer les actions de l'utilisateur côté client (navigation, formulaires, requêtes, etc.).<br>
 
     <br><br>
 
@@ -221,7 +221,7 @@
 
     - <u><a id="p5ai"></a>i. Qui sont les participants au projet ?</u><br><br>
 
-        Le projet à été réaliser par William Herubel
+        Le projet a été réalisé par William Herubel
       <br>
       <br>
   
@@ -231,13 +231,13 @@
       - ### Flexibility
         Notre application doit être extensible, permettant l'ajout de nouvelles fonctionnalités sans réécrire le code
       - ### Portability
-        La plateforme web devra permmettre une accécibilité depuis le réseau de L'IUT
-      - ### Security
+        La plateforme web devra permettre une accecibilité depuis le réseau de l'IUT
+      - ### Sécurité
         Les données doivent être protégées et le site ne doit afficher que les informations auxquelles chaque utilisateur est autorisé à accéder. Il est essentiel de sécuriser les requêtes SQL effectuées par les fichiers Node.js afin de restreindre au maximum l'accès et de limiter les failles de sécurité. De plus, tous les mots de passe doivent être chiffrés avant d'être stockés dans la base de données afin d'atténuer les conséquences d'une éventuelle fuite de données.<br>
       <br>
   
     - <u><a id="p5aiii"> </a> iii. Quels retours et quelle visibilité sur le projet les utilisateurs et les commanditaires attendent-ils ?</u><br><br>
-      Ce projet s’inscrivant dans le cadre d’un Stage universitaire, le commanditaires sera mon enseignant. Il bénéficient d’une visibilité importante sur son avancement et recevra la documentation relative au projet et à ses avancées. Une communication régulière entre moi et l'enseignants est recommandée afin de garantir que le projet réponde à leurs attentes. Les échanges avec mon professeur se feront par courriel et en personne.<br>
+      Ce projet s’inscrivant dans le cadre d’un stage universitaire, le commanditaire sera mon enseignant. Il bénéficie d’une visibilité importante sur son avancement et recevra la documentation relative au projet et à ses avancées. Une communication régulière entre moi et l'enseignant est recommandée afin de garantir que le projet réponde à leurs attentes. Les échanges avec mon professeur se feront par courriel et en personne.<br>
       Mon client, M. HOGUIN, devrait avoir un accès complet au projet : GitHub<br>
       
   
@@ -266,7 +266,7 @@
 
 ---
 
-### <a id="p6"></a>VI – Human Resources, Legal, Political, and Organizational Questions
+### <a id="p6"></a>VI – Ressources Humaines, Questions Juridiques, Politiques et Organisationnelles
 
 - <b><a id="p6a"></a>a) Quelles sont les exigences légales et politiques ?</b><br><br>
   L’application doit être conforme à la loi française « Informatique et Libertés » du 6 janvier 1978, modifiée le 1er juin 2019, relative à l’informatique, aux fichiers et aux libertés.<br>
@@ -304,7 +304,7 @@
         - L’utilisation de l’application par les personnes handicapées peut différer.<br>
           <br>
     - L'application dépend de :<br>
-        - la présence des administrateurs.
+        - La présence des administrateurs.
         - La loi française « Informatique et Libertés » et le RGPD au sein de l’Union européenne sont des textes de loi applicables. Toute modification de ces lois peut nécessiter une réévaluation de l’application afin d’en garantir la conformité continue.
         - L'évolution des navigateurs internet. L'application risque de devenir obsolète.
 
