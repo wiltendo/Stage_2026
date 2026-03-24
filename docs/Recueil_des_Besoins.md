@@ -1,11 +1,5 @@
-<div align="center">
-<img height="95" width="400" src="https://www.uvsq.fr/medias/photo/iut-velizy-villacoublay-logo-2020-ecran_1580904185110-jpg?ID_FICHE=214049" title="logo uvsq vélizy"/>
-
 # SAÉ S3 - Recueil des besoins
-<br>
-</div>
 
----
 
 ## Sommaire
 
@@ -72,7 +66,7 @@
   - **Project Importance:**
     - Ce projet vise à fournir une solution pratique pour réaliser des demandes de reprographie.
     
-  - **Expected Outcomes:**
+  - **Résultats attendus:**
     - Une plateforme web entièrement fonctionnelle qui récupère et traite des demandes de reprographie de fichiers.
     - Des fonctionnalités améliorées de sécurité et de gestion des utilisateurs qui protègent les données des utilisateurs et garantissent l'intégrité et la fiabilité du système.
     
@@ -168,7 +162,7 @@
 
 ---
 
-- <b><a id="p3c"></a>c) User use cases.</b>
+- <b><a id="p3c"></a>c) Cas d'utilisation utilisateurs.</b>
 
   **À ajouter après les Cu**
 
@@ -178,7 +172,7 @@
 
 ---
 
-- <b><a id="p3d"></a>d) System use cases.</b>
+- <b><a id="p3d"></a>d) Cas d'utilisation système.</b>
 
   **À ajouter après les Cu**
 
@@ -191,8 +185,8 @@
 ### <a id="p4"></a>IV – Technologies utilisées
 
 - **<a id="p4a"></a>a) Quelles sont les exigences techniques de ce système ?**  <br><br>
-    L’application doit utiliser : SQL, HTML, CSS, JS, Express.<br>
-    - SQL est le langage utilisé pour travailler avec un SGBD.<br>
+    L’application doit utiliser : MongoDB, HTML, CSS, JS, Express.<br>
+    - MongoDB est un système de gestion de base de données NoSQL permettant de stocker les données sous forme de documents.<br>
     - Le HTML et le CSS sont utilisés pour créer les pages du site web.<br>
     - Express est un Framework permettant de créer des serveurs web, gérer les routes, les requêtes HTTP et la communication entre le site web et la base de données<br>
     - JavaScript (JS) est utilisé pour rendre les pages web interactives et gérer les actions de l'utilisateur côté client (navigation, formulaires, requêtes, etc.).<br>
