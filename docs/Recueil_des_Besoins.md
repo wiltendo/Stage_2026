@@ -81,7 +81,7 @@
 
 **Diagramme à ajouter** 
 <div align="center">
-    <img height="400" width="900" src="CU_V3.png" title="diagramme CU"/>
+    <img height="400" width="900" src="img/Cas_Utilisation.png" title="diagramme CU"/>
 </div>
 <div align="right">
     <a href="#Sommaire">⮐ retour au Sommaire</a>
@@ -154,7 +154,116 @@
 
 - **<a id="p3b"></a>b) Cas d'utilisation stratégiques.**
 
-  **À ajouter après les Cu**
+#### Cas d'utilisation 1 : Administration
+**Nom :** Administration <br>
+**Contexte d'utilisation :** La plateforme doit permettre aux administrateurs de gérer les éléments. <br>
+**Portée :** Organisation boite noir <br>
+**Niveau :**  Stratégique <br>
+**Acteur principal :** Administrateur <br>
+**Précondition :** Administrateur est connecter <br>
+**Garanties en cas de succès :** Modification des données  <br>
+**Granties minimales:** Aucune Modification effectués <br>
+**Déclencheur :** Besoin de modifier les données de la plateforme <br>
+**Scénario nominal :**
+1. L'administrateur accéde aux données
+2. Les données sont modifier par l'administrateur
+
+**Exception :**
+
+a. Impossible d'accéder à la base de données
+1. Un message d'error est afficher pour Chargement (ECHEC)
+
+b. Error durant la modification :
+1. Un message d'error est afficher pour Modification (ECHEC)
+***
+
+#### Cas d'utilisation 2 : Gestion des Utilisateurs
+**Nom :** Gestion des Utilisateurs <br>
+**Contexte d'utilisation :** La plateforme doit permettre aux administrateurs de gérer les comptes utilisateurs. <br>
+**Portée :** Organisation boite blanche <br>
+**Niveau :**  Stratégique <br>
+**Acteur principal :** Administrateur <br>
+**Précondition :** Administrateur est connecter <br>
+**Garanties en cas de succès :** Création d'un compte utilisateur  <br>
+**Garanties minimales:** Les données entrée ne sont pas stocker <br>
+**Déclencheur :** Une demande de création d'utilisateur est réaliser <br>
+**Scénario nominal :**
+1. Une demande de création de compte est reçu
+2. Accés à la base de données
+3. Création d'un nouveau compte utilisateur
+
+**Exception :**
+
+a. Les champs obligatoires du formulaire ne sont pas tous remplis :
+1. Un message d'error est envoyés pour la création d'un compte (ECHEC)
+
+b. Impossible d'acceder à la base de données :
+1. Un message d'error est envoyés pour la création d'un compte (ECHEC)
+
+c. Une erreur est arriver durant la création dû compte
+1. Un message d'error est envoyés pour la création d'un compte (ECHEC)
+
+***
+#### Cas d'utilisation 3 : Gestion Profil
+**Nom :** Gestion Profil <br>
+**Contexte d'utilisation :** Un utilisateur possédant un compte inscrit souhaite consulter ses informations, changer et/ou récupérer son mot de passe. <br>
+**Portée :** Systéme boite noir <br>
+**Niveau :**  Stratégique <br>
+**Acteur principal :** Utilisateur <br>
+**Précondition :** Un utilisateur est connecté <br>
+**Garanties minimales :** Les données seront privées et le mot de passe est masqué  <br>
+**Déclencheur :** Evénement interne concernant le profil d'un utilisateur <br>
+**Scénario nominal :**
+1. Accéder à la base de données
+2. Extraire les informations du compte
+3. Gérer la demande de l'utilisateur
+
+**Exception :**
+
+1. a. Impossible d'accéder à la base de données :
+    1. Afficher une erreur. (ECHEC)
+***
+#### Cas d'utilisation 4 : Gestion requête
+**Nom :** Gestion requête <br>
+**Contexte d'utilisation :**  La plateforme doit permettre de gérer et afficher des demandes de reprographie. <br>
+**Portée :**  Organisation boîte noire<br>
+**Niveau :**  Stratégique <br>
+**Acteur principal :** Utilisateur <br>
+**Précondition :**  Utilisateur connecté <br>
+**Garanties minimale :** Possibilité de crée des requêtes de reprographie <br>
+**Déclencheur :** Requête de l'utilisateur <br>
+**Scénario nominal :** <br>
+1. L'utilisateur réaliser une demande (créer, voir, modifier)
+2. Une interaction avec la base de données à lieu
+
+**Exception :**
+
+a. La demande n'a pas fonctionner
+1. Un message d'erreur est afficher indiquant l'erreur
+
+b. L'affichage à échoué
+1. Un message d'erreur est afficher
+
+***
+
+#### Cas d'utilisation 5 : Consultation des requêtes
+**Nom :** Consultation des requêtes <br>
+**Contexte d'utilisation :**  Un utilisateur réalise une demande pour voir les requêtes<br>
+**Portée :** Systéme boite noir <br>
+**Niveau :** Stratégique  <br>
+**Acteur principal :** Utilisateur <br>
+**Précondition :** Utilisateur doit être connecter<br>
+**Garanties en cas de succès :** Un tableau est affichés contenant les informations  <br>
+**Déclencheur :** Demande de l'utilisateur pour voir les requêtes <br>
+**Scénario nominal :** <br>
+1. L'utilisateur fait une demande
+2. Une intéraction à lieu avec la base de données
+3. Le résultat est affiché
+
+**Exception :**
+
+a. Impossible d'accéder à la base de données :
+1. Afficher une erreur (ECHEC)
 
 <div align="right">
     <a href="#Sommaire">⮐ retour au Sommaire</a>
