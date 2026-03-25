@@ -45,12 +45,14 @@ Le systéme devra permettre :
 Le projet étant une plateforme destinée à un service de reprographie, les demandes seront représentées sous la forme de tickets (appelés requêtes). 
 
 Un ticket devra contenir les informations suivantes :
+- Un identifiant unique
+- Le nom du Fichier
 - Le type à imprimer. 
 - Le nombre de pages du document, afin d'estimer la charge de travail.
 - Une option recto ou recto-verso (valeur booléenne).
 - Une option agrafe indiquant si les pages doivent être agrafées ou non (valeur booléenne).
-- Une date de retour correspondant à la date limite d'impression du document.
 - Une date de création de la demande
+- Une date de retour correspondant à la date limite d'impression du document.
 - L'utilisateur ayant créé la demande
 
 Chaque ticket possède également un état (status) permettant de connaître l'avancement de la demande, un ticket peut avoir trois états:
@@ -81,8 +83,8 @@ Un compte utilisateur sera composé des informations suivantes :
 - Identifiant
 - Nom
 - Prénom
-- Adresse e-mail
 - Mot de passe
+- Adresse e-mail
 - Département
 
 Le mot de passe sera associé au compte utilisateur et devra être chiffré avant d’être stocké dans la base de données afin de sécuriser l’accès au système.
