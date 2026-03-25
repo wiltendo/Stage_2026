@@ -544,7 +544,57 @@ a. Impossible d'accéder à la base de données :
 
 - <b><a id="p3d"></a>d) Cas d'utilisation système.</b>
 
-  **À ajouter après les Cu**
+#### Cas d'utilisation 17 : Authentification
+**Nom :** Authentification <br>
+**Contexte d'utilisation :** Un utilisateur veut changer entre être connecter et déconnecter <br>
+**Portée :** Sous-Systéme <br>
+**Niveau :** Sous-Fonction  <br>
+**Acteur principal :** Systéme <br>
+**Intervenant :** Utilisateur <br>
+**Précondition :** Utilisateur <br>
+**Garanties en cas de succès :** Utilisateur sera Connecter/Déconnecter <br>
+**Déclencheur :** Reception d'une demande d'authentification <br>
+**Scénario nominal Connection :** <br>
+1. Utilisateur fait une demande de connection
+2. Une intéraction à lieu avec la base de données
+3. Comparaison des informations avec celle de l'utilisateur
+4. Connection aux compte de l'utilisateur
+
+**Exception Connection :**
+1. L'utilisateur n'a pas rempli tous les champs obligatoires du formulaire :
+    - Un message d'erreur est envoyé à l'utilisateur (ÉCHEC).
+2. Impossible d'accéder à la base de données :
+    - Un message d'erreur est envoyé à l'utilisateur pour échec d'accés à la base de données (ÉCHEC).
+3. Les identifiants de l'utilisateur ne figurent pas dans la base de données :
+    - Un message d'échec de connection est envoyé à l'utilisateur (ÉCHEC).
+4. Le mot de passe fourni n'est pas valide :
+    - Un message d'échec de connection est envoyé à l'utilisateur (ÉCHEC).
+5. Échec de la connexion :
+    - Un message d'échec de connection est envoyé à l'utilisateur (ÉCHEC).
+
+**Scénario nominal Déconnection :**
+1. Utilisateur fait une demande de Déconnection
+2. L'utilisateur est déconnecter de son compte
+3. Affichage d'un message de validation de déconnection
+
+**Exception Déconnection :**
+1. Échec de déconnection :
+    - Un message d'erreur est envoyé à l'utilisateur pour échec de déconnection (ÉCHEC)
+
+***
+#### Cas d'utilisation 18 : Consulter page d'acceuil
+**Nom :** Consulter page d'acceuil <br>
+**Contexte d'utilisation :**  <br>
+**Portée :** Sous-systéme <br>
+**Niveau :** Sous-Fonction <br>
+**Acteur principal :** Systéme <br>
+**Garanties en cas de succès :** Connection au site réussie <br>
+**Déclencheur :** Un visiteur souhaite accéder au site <br>
+**Scénario nominal :** <br>
+1. Le visiteur fait une demande de connection au site
+2. Le systéme le connecte à l'application
+
+
 
 <div align="right">
     <a href="#Sommaire">⮐ retour au Sommaire</a>
