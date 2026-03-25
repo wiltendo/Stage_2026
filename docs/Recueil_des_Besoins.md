@@ -79,7 +79,6 @@
   - **Diagramme descriptif des niveaux :** Représentation visuelle de l’architecture du système, montrant comment les différents composants interagissent et comment les données circulent dans le système.
   - **Diagramme de cas d'utilisation :** illustre les interactions entre les utilisateurs (administrateurs et utilisateurs finaux) et le système, en mettant en évidence les principales fonctionnalités et les flux de contrôle.
 
-**Diagramme à ajouter** 
 <div align="center">
     <img height="400" width="900" src="img/Cas_Utilisation.png" title="diagramme CU"/>
 </div>
