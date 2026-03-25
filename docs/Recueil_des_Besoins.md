@@ -1,4 +1,4 @@
-# SAÉ S3 - Recueil des besoins
+# Stage 2026 - Recueil des besoins
 
 
 ## Sommaire
