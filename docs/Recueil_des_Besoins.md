@@ -138,7 +138,7 @@
         > - Est un utilisateur, mais avec des droits d'administrateur supplémentaires
         > - Voir toutes les demandes réalisées par les utilisateurs
         > - Télécharger des documents
-        > - Changer l'état d'une demande (En attente -> Préparation -> Finie)
+        > - Changer l'état d'une demande (Ouvert -> En cours de traitement -> Complété)
 
   <br>
 
