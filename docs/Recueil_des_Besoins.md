@@ -157,62 +157,62 @@
 #### Cas d'utilisation 1 : Administration
 **Nom :** Administration <br>
 **Contexte d'utilisation :** La plateforme doit permettre aux administrateurs de gérer les éléments. <br>
-**Portée :** Organisation boite noir <br>
+**Portée :** Organisation boîte noire <br>
 **Niveau :**  Stratégique <br>
 **Acteur principal :** Administrateur <br>
-**Précondition :** Administrateur est connecter <br>
+**Précondition :** Administrateur est connecté <br>
 **Garanties en cas de succès :** Modification des données  <br>
-**Granties minimales:** Aucune Modification effectués <br>
+**Garanties minimales :** Aucune modification effectuée <br>
 **Déclencheur :** Besoin de modifier les données de la plateforme <br>
 **Scénario nominal :**
-1. L'administrateur accéde aux données
-2. Les données sont modifier par l'administrateur
+1. L'administrateur accède aux données
+2. Les données sont modifiées par l'administrateur
 
 **Exception :**
 
-a. Impossible d'accéder à la base de données
-1. Un message d'error est afficher pour Chargement (ECHEC)
+1. Impossible d'accéder à la base de données
+    - Un message d'erreur est envoyé à l'utilisateur pour échec d'accès à la base de données (ÉCHEC).
 
-b. Error durant la modification :
-1. Un message d'error est afficher pour Modification (ECHEC)
+2. Erreur durant la modification :
+    - Envoi d'un message d'échec de modification (ÉCHEC)
 ***
 
 #### Cas d'utilisation 2 : Gestion des Utilisateurs
 **Nom :** Gestion des Utilisateurs <br>
 **Contexte d'utilisation :** La plateforme doit permettre aux administrateurs de gérer les comptes utilisateurs. <br>
-**Portée :** Organisation boite blanche <br>
+**Portée :** Organisation boîte blanche <br>
 **Niveau :**  Stratégique <br>
 **Acteur principal :** Administrateur <br>
-**Précondition :** Administrateur est connecter <br>
+**Précondition :** Administrateur est connecté <br>
 **Garanties en cas de succès :** Création d'un compte utilisateur  <br>
-**Garanties minimales:** Les données entrée ne sont pas stocker <br>
+**Garanties minimales :** Les données entrées ne sont pas stockées <br>
 **Déclencheur :** Une demande de création d'utilisateur est réaliser <br>
 **Scénario nominal :**
-1. Une demande de création de compte est reçu
-2. Accés à la base de données
+1. Une demande de création de compte est reçue
+2. Accès à la base de données
 3. Création d'un nouveau compte utilisateur
 
 **Exception :**
 
-a. Les champs obligatoires du formulaire ne sont pas tous remplis :
-1. Un message d'error est envoyés pour la création d'un compte (ECHEC)
+1. Les champs obligatoires du formulaire ne sont pas tous remplis :
+    - Un message d'erreur est envoyé pour la création d'un compte (ÉCHEC)
 
-b. Impossible d'acceder à la base de données :
-1. Un message d'error est envoyés pour la création d'un compte (ECHEC)
+2. Impossible d'accéder à la base de données :
+    - Un message d'erreur est envoyé pour la création d'un compte (ÉCHEC)
 
-c. Une erreur est arriver durant la création dû compte
-1. Un message d'error est envoyés pour la création d'un compte (ECHEC)
+3. Une erreur est arrivée durant la création du compte
+    - Un message d'erreur est envoyé pour la création d'un compte (ÉCHEC)
 
 ***
 #### Cas d'utilisation 3 : Gestion Profil
 **Nom :** Gestion Profil <br>
 **Contexte d'utilisation :** Un utilisateur possédant un compte inscrit souhaite consulter ses informations, changer et/ou récupérer son mot de passe. <br>
-**Portée :** Systéme boite noir <br>
+**Portée :** Système boîte noir <br>
 **Niveau :**  Stratégique <br>
 **Acteur principal :** Utilisateur <br>
 **Précondition :** Un utilisateur est connecté <br>
 **Garanties minimales :** Les données seront privées et le mot de passe est masqué  <br>
-**Déclencheur :** Evénement interne concernant le profil d'un utilisateur <br>
+**Déclencheur :** Événement interne concernant le profil d'un utilisateur <br>
 **Scénario nominal :**
 1. Accéder à la base de données
 2. Extraire les informations du compte
@@ -220,8 +220,8 @@ c. Une erreur est arriver durant la création dû compte
 
 **Exception :**
 
-1. a. Impossible d'accéder à la base de données :
-    1. Afficher une erreur. (ECHEC)
+1. Impossible d'accéder à la base de données :
+    - Afficher une erreur. (ÉCHEC)
 ***
 #### Cas d'utilisation 4 : Gestion requête
 **Nom :** Gestion requête <br>
@@ -230,40 +230,40 @@ c. Une erreur est arriver durant la création dû compte
 **Niveau :**  Stratégique <br>
 **Acteur principal :** Utilisateur <br>
 **Précondition :**  Utilisateur connecté <br>
-**Garanties minimale :** Possibilité de crée des requêtes de reprographie <br>
+**Garanties minimales :** Possibilité de créer des requêtes de reprographie <br>
 **Déclencheur :** Requête de l'utilisateur <br>
 **Scénario nominal :** <br>
-1. L'utilisateur réaliser une demande (créer, voir, modifier)
-2. Une interaction avec la base de données à lieu
+1. L'utilisateur réalise une demande (créer, voir, modifier)
+2. Une interaction avec la base de données a lieu
 
 **Exception :**
 
-a. La demande n'a pas fonctionner
-1. Un message d'erreur est afficher indiquant l'erreur
+1. La demande n'a pas fonctionné
+    - Un message d'erreur est affiché indiquant l'erreur
 
-b. L'affichage à échoué
-1. Un message d'erreur est afficher
+2. L'affichage a échoué
+    - Un message d'erreur est affiché
 
 ***
 
 #### Cas d'utilisation 5 : Consultation des requêtes
 **Nom :** Consultation des requêtes <br>
-**Contexte d'utilisation :**  Un utilisateur réalise une demande pour voir les requêtes<br>
-**Portée :** Systéme boite noir <br>
+**Contexte d'utilisation :**  Un utilisateur réalise une demande pour voir les requêtes <br>
+**Portée :** Système boîte noir <br>
 **Niveau :** Stratégique  <br>
 **Acteur principal :** Utilisateur <br>
-**Précondition :** Utilisateur doit être connecter<br>
-**Garanties en cas de succès :** Un tableau est affichés contenant les informations  <br>
+**Précondition :** Utilisateur doit être connecté <br>
+**Garanties en cas de succès :** Un tableau est affiché contenant les informations  <br>
 **Déclencheur :** Demande de l'utilisateur pour voir les requêtes <br>
 **Scénario nominal :** <br>
 1. L'utilisateur fait une demande
-2. Une intéraction à lieu avec la base de données
+2. Une interaction a lieu avec la base de données
 3. Le résultat est affiché
 
 **Exception :**
 
-a. Impossible d'accéder à la base de données :
-1. Afficher une erreur (ECHEC)
+1. Impossible d'accéder à la base de données :
+    - Afficher une erreur (ÉCHEC)
 
 <div align="right">
     <a href="#Sommaire">⮐ retour au Sommaire</a>
@@ -275,85 +275,85 @@ a. Impossible d'accéder à la base de données :
 
 #### Cas d'utilisation 6 : Inscription
 **Nom :** Inscription <br>
-**Contexte d'utilisation :** Un nouvelle utilisiteur voudrai crée un compte <br>
-**Portée :** Systéme boite noir <br>
+**Contexte d'utilisation :** Un nouvel utilisateur voudrait créer un compte <br>
+**Portée :** Système boîte noir <br>
 **Niveau :**  Utilisateur <br>
 **Acteur principal :** Utilisateur <br>
-**Précondition :** l'utilisateur ne doit pas être connecter <br>
-**Garanties en cas de succès :** Un nouveau compte utilisateur est crée <br> 
+**Précondition :** l'utilisateur ne doit pas être connecté <br>
+**Garanties en cas de succès :** Un nouveau compte utilisateur est créé <br> 
 **Garanties minimales :**  Les données seront privées et le mot de passe encrypté <br>
-**Déclencheur :** Un formulaire de création de compte est donner au systéme par le nouvelle utilisateur <br>
+**Déclencheur :** Un formulaire de création de compte est donné au système par le nouvel utilisateur <br>
 **Scénario nominal :** <br>
-1. Reception d'un formulaire de création d'utilisateur
-2. emcriptage du mot de passe donner dans le formulaire
-3. Insertion d'un valeur dans la base de données
+1. Réception d'un formulaire de création d'utilisateur
+2. Encriptage du mot de passe donné dans le formulaire
+3. Insertion d'une valeur dans la base de données
 4. Affichage d'un message de validation de création de compte
 
 **Exception :**
 
-1. L'utilisateur n'a pas remplit tous les champs obligatoires du formulaire :
-    - Envoi d'un message d'échec de création de compte à l'utilisateur (ECHEC)
+1. L'utilisateur n'a pas remplt tous les champs obligatoires du formulaire :
+    - Envoi d'un message d'échec de création de compte à l'utilisateur (ÉCHEC)
 
 
 2. Le login de l'utilisateur est déjà présent dans la base de données :
-    - Envoi d'un message d'échec de création de compte à l'utilisateur (ECHEC)
+    - Envoi d'un message d'échec de création de compte à l'utilisateur (ÉCHEC)
     
 3. Impossible d'accéder à la base de données :
-    - Envoi d'un message d'échec de création de compte à l'utilisateur (ECHEC)
+    - Envoi d'un message d'échec de création de compte à l'utilisateur (ÉCHEC)
 ***
 
 #### Cas d'utilisation 7 : Création d'un reprographe
 **Nom :** Création d'un reprographe <br>
 **Contexte d'utilisation :** L'administrateur crée un nouveau compte reprographe<br>
-**Portée :** Systéme boite noir <br>
+**Portée :** Système boîte noir <br>
 **Niveau :** Utilisateur  <br>
 **Acteur principal :** Administrateur <br>
 **Précondition :** Adminstrateur est connecté à son compte <br>
-**Garanties en cas de succès :** Un nouveau compte reprographe est crée <br>
+**Garanties en cas de succès :** Un nouveau compte reprographe est créé <br>
 **Garanties minimales :** Les données seront privées et le mot de passe encrypté <br>
 **Déclencheur :** Administrateur fait une demande de création d'un compte reprographe <br>
 **Scénario nominal :** <br>
-1. Reception d'un formulaire de création d'utilisateur
-2. emcriptage du mot de passe donner dans le formulaire
+1. Réception d'un formulaire de création d'utilisateur
+2. Encriptage du mot de passe donné dans le formulaire
 3. Insertion des valeurs dans la base de données
 4. Affichage d'un message de validation de création de compte
 
 **Exception :**
 
-1. L'utilisateur n'a pas remplit tous les champs obligatoires du formulaire :
-    - Envoi d'un message d'échec de création de compte à l'utilisateur (ECHEC)
+1. L'utilisateur n'a pas rempli tous les champs obligatoires du formulaire :
+    - Envoi d'un message d'échec de création de compte à l'utilisateur (ÉCHEC)
 2. Le login de l'utilisateur est déjà présent dans la base de données :
-    - Envoi d'un message d'échec de création de compte à l'utilisateur (ECHEC)   
+    - Envoi d'un message d'échec de création de compte à l'utilisateur (ÉCHEC)   
 3. Impossible d'accéder à la base de données :
-    - Envoi d'un message d'échec de création de compte à l'utilisateur (ECHEC)
+    - Envoi d'un message d'échec de création de compte à l'utilisateur (ÉCHEC)
 ***
 
 #### Cas d'utilisation 8 : Changer de mot de passe
 **Nom :** Changer de mot de passe <br>
 **Contexte d'utilisation :** Un utilisateur fait une demande de changement de mot de passe <br>
-**Portée :** Systéme boite blanche <br>
+**Portée :** Système boîte blanche <br>
 **Niveau :** Utilisateur <br>
 **Acteur principal :** Utilisateur <br>
 **Précondition :** Utilisateur est connecté à son compte <br>
-**Garanties minimales :** Les données seront privées, le mot de passe encrypté et le mot de passe n'est pas modifier <br>
-**Déclencheur :** Une demande est réaliser et envoyer par l'utilisateur <br>
+**Garanties minimales :** Les données seront privées, le mot de passe encrypté et le mot de passe n'est pas modifié <br>
+**Déclencheur :** Une demande est réalisée et envoyée par l'utilisateur <br>
 **Scénario nominal :** <br>
-1. Le systéme reçoit un formulaire de modification de mot de passe
-2. Une intéraction à lieu avec la base de données
+1. Le système reçoit un formulaire de modification de mot de passe
+2. Une interaction a lieu avec la base de données
 3. Vérification des informations du formulaire avec celles contenues dans la base de données
 4. Changement du mot de passe entre l'ancien et le nouveau dans la base de données
-5. Affichage d'un message de Validation du changemnt de mot de passe
+5. Affichage d'un message de validation du changement de mot de passe
 
 **Exception :**
 
-1. L'utilisateur n'a pas remplit tous les champs obligatoires du formulaire :
-    - Envoi d'un message d'échec de changement de mot de passe (ECHEC)
+1. L'utilisateur n'a pas rempli tous les champs obligatoires du formulaire :
+    - Envoi d'un message d'échec de changement de mot de passe (ÉCHEC)
 2. Impossible d'accéder à la base de données :
-    - Envoi d'un message d'échec de changement de mot de passe (ECHEC)
+    - Envoi d'un message d'échec de changement de mot de passe (ÉCHEC)
 3. Le login de l'utilisateur n'est pas dans la base de données :
     - Déconnexion de la session
 4. Le mot de passe renseigné n'est pas validé :
-    - Envoi d'un message d'échec de changement de mot de passe (ECHEC)
+    - Envoi d'un message d'échec de changement de mot de passe (ÉCHEC)
 ***
 
 #### Cas d'utilisation 9 : Consulter un profil
@@ -363,108 +363,108 @@ a. Impossible d'accéder à la base de données :
 **Niveau :**  Utilisateur <br>
 **Acteur principal :** Utilisateur <br>
 **Précondition :** l'utilisateur est connecté <br>
-**Garanties minimales :** Les informations ne sont pas afficher et modifier <br>
-**Déclencheur :** Une requête est envoyer au systéme par l'utilisateur pour consulter son profil <br>
+**Garanties minimales :** Les informations ne sont pas affichées et modifiées <br>
+**Déclencheur :** Une requête est envoyée au système par l'utilisateur pour consulter son profil <br>
 **Scénario nominal :** <br>
-1. L'utilisateur fait une demande d'accés à son profil
-2. Une intéraction à lieu avec la base de données
-3. Une comparaison à lieu entre les données de l'utilisateur et les données du formulaire
-4. Les informations de l'utilisateur sont affichés
+1. L'utilisateur fait une demande d'accès à son profil
+2. Une interaction a lieu avec la base de données
+3. Une comparaison a lieu entre les données de l'utilisateur et les données du formulaire
+4. Les informations de l'utilisateur sont affichées
 
 **Exception :**
 
 1. Le login de l'utilisateur n'est pas dans la base de données :
     - Déconnexion de la session
 2. Impossible d'accéder à la base de données :
-    - Envoi d'un message d'échec d'accés à la base de données (ECHEC)
+    - Envoi d'un message d'échec d'accès à la base de données (ÉCHEC)
 ***
 
 #### Cas d'utilisation 10 : Crée une requête
 **Nom :** Crée une requête <br>
-**Contexte d'utilisation :** L'utilisateur souhaite crée une nouvelle demande de reprographie  <br>
-**Portée :** Systéme boîte blanche <br>
+**Contexte d'utilisation :** L'utilisateur souhaite créer une nouvelle demande de reprographie  <br>
+**Portée :** Système boîte blanche <br>
 **Niveau :** Utilisateur  <br>
 **Acteur principal :** Utilisateur <br>
 **Précondition :** l'utilisateur est connecté <br>
-**Garanties en cas de succès :** La demande est enregistrer dans la base de données <br>
-**Déclencheur :** Un formulaire de création de requête est remplie et envoyer par l'utilisateur <br>
+**Garanties en cas de succès :** La demande est enregistrée dans la base de données <br>
+**Déclencheur :** Un formulaire de création de requête est rempli et envoyé par l'utilisateur <br>
 **Scénario nominal :** <br>
-1. L'utilisateur remplie un formulaire de création de requête 
-2. Une intéraction à lieu avec la base de données
-3. Les données du formulaire sont insérer dans la base de données
+1. L'utilisateur remplit un formulaire de création de requête 
+2. Une interaction a lieu avec la base de données
+3. Les données du formulaire sont insérées dans la base de données
 
 **Exception :**
-1. L'utilisateur n'a pas remplit tous les champs obligatoires du formulaire :
-    - Envoi d'un message d'échec de création d'une requête (ECHEC)
+1. L'utilisateur n'a pas rempli tous les champs obligatoires du formulaire :
+    - Envoi d'un message d'échec de création d'une requête (ÉCHEC)
 2. Impossible d'accéder à la base de données :
-    - Envoi d'un message d'échec d'accés à la base de données (ECHEC)
+    - Envoi d'un message d'échec d'accès à la base de données (ÉCHEC)
 ***
 
 #### Cas d'utilisation 11 : Modifier une requête
 **Nom :** Modifier une requête <br>
 **Contexte d'utilisation :** L'utilisateur souhaite modifier une information concernant une requête <br>
-**Portée :** Sous systême <br>
+**Portée :** Sous-systême <br>
 **Niveau :** Utilisateur  <br>
 **Acteur principal :** Utilisateur <br>
 **Précondition :** Utilisateur est connecté <br>
-**Garanties en cas de succès :** La requête est modifer <br>
-**Granties minimales :** La requête n'est pas modifier<br>
-**Déclencheur :** Une demande de modification de requête est réaliser <br>
+**Garanties en cas de succès :** La requête est modifée <br>
+**Garanties minimales :** La requête n'est pas modifiée <br>
+**Déclencheur :** Une demande de modification de requête est réalisée <br>
 **Scénario nominal :** <br>
-1. L'utilisateur remplie un formulaire de modification de requête
-2. Une intéraction à lieu avec la base de données
-3. Les données de la requêtes sont modifier dans la base de données
+1. L'utilisateur remplit un formulaire de modification de requête
+2. Une interaction a lieu avec la base de données
+3. Les données de la requête sont modifiées dans la base de données
 
 **Exception :**
 
-1. Les informations de la requête modifiés ne sont pas completes :
-    - Envoi d'un message d'échec lors de la modification d'une requête (ECHEC)
+1. Les informations de la requête modifiées ne sont pas complètes :
+    - Envoi d'un message d'échec lors de la modification d'une requête (ÉCHEC)
 
 2. Impossible d'accéder à la base de données :
-    - Envoi d'un message d'échec d'accés à la base de données (ECHEC)
+    - Envoi d'un message d'échec d'accès à la base de données (ÉCHEC)
 
 3. La requête n'existe pas : 
-    - Envoi d'un message d'échec de modification de la requête (ECHEC)
+    - Envoi d'un message d'échec de modification de la requête (ÉCHEC)
 
 ***
 
 #### Cas d'utilisation 12 : Déposer un fichier
 **Nom :** Déposer un fichier <br>
 **Contexte d'utilisation :** l'utilisateur dépose un fichier dans une demande de reprographie <br>
-**Portée :** Systéme boite blanche <br>
+**Portée :** Système boîte blanche <br>
 **Niveau :** Utilisateur  <br>
 **Acteur principal :** Utilisateur <br>
 **Précondition :** Utilisateur doit être connecté <br>
-**Garanties en cas de succès :** le fichier est déposer <br>
-**Déclencheur :** l'utilisateur souhaite déposer un fichier dans sa demande <br>
+**Garanties en cas de succès :** le fichier est déposé <br>
+**Déclencheur :** L'utilisateur souhaite déposer un fichier dans sa demande <br>
 **Scénario nominal :** <br>
 1. L'utilisateur dépose un fichier 
-2. Le fichier est charger
+2. Le fichier est chargé
 
 **Exception :**
 
-1. Probléme dans le chargement :
+1. Problème dans le chargement :
     - Annulation du chargement du fichier
 ***
 
 #### Cas d'utilisation 13 : Télécharger un fichier
 **Nom :** Télécharger un fichier <br>
 **Contexte d'utilisation :** Un reprographe veut télécharger un fichier <br>
-**Portée :** Systéme boite blanche <br>
+**Portée :** Système boîte blanche <br>
 **Niveau :** Utilisateur  <br>
 **Acteur principal :** Reprographe <br>
 **Précondition :** Le reprographe est connecté <br>
-**Garanties en cas de succès :** Le fichier est télécharger <br>
+**Garanties en cas de succès :** Le fichier est téléchargé <br>
 **Déclencheur :** Le reprographe fait une demande de téléchargement <br>
 **Scénario nominal :** <br>
-1. Le reprographe envoye une demande de téléchargement au systéme
-2. Une intéraction à lieu avec la base de données ou le systéme de stockage de fichier
-3. Un téléchargement de fichier est réaliser entre le lieu de stockage du fichier et l'appareil du reprographe
+1. Le reprographe envoie une demande de téléchargement au système
+2. Une interaction a lieu avec la base de données ou le système de stockage de fichiers
+3. Un téléchargement de fichier est réalisé entre le lieu de stockage du fichier et l'appareil du reprographe
 
 **Exception :**
 1. Impossible d'accéder à la base de données :
-    - Envoi d'un message d'échec d'accés à la base de données  (ECHEC)
-2. Probléme dans le téléchargement :
+    - Envoi d'un message d'échec d'accès à la base de données  (ÉCHEC)
+2. Problème dans le téléchargement :
     - Annulation du téléchargement du fichier et message d'erreur de téléchargement
 
 ***
@@ -472,67 +472,67 @@ a. Impossible d'accéder à la base de données :
 #### Cas d'utilisation 14 : Fermer une requête
 **Nom :** Fermer une requête <br>
 **Contexte d'utilisation :** Un reprographe fait une demande de fermeture d'une requête de reprographie <br>
-**Portée :** Systéme boite noir <br>
+**Portée :** Système boîte noir <br>
 **Niveau :** Utilisateur  <br>
 **Acteur principal :** Reprographe <br>
 **Précondition :** Le reprographe est connecté <br>
 **Garanties en cas de succès :** La requête à changer d'état <br>
-**Garanties minimales :** La requête n'est pas modifier <br>
+**Garanties minimales :** La requête n'est pas modifiée <br>
 **Déclencheur :** Le reprographe fait une demande de fermeture de requête <br>
 **Scénario nominal :** <br>
 1. Le reprographe réalise une demande de fermeture d'une requête
-2. Une intéraction à lieu avec la base de données
-3. L'état de la requête est modifier dans la base de données
+2. Une interaction a lieu avec la base de données
+3. L'état de la requête est modifié dans la base de données
 
 
 **Exception :**
 1. Impossible d'accéder à la base de données :
-    - Envoi d'un message d'échec d'accés à la base de données  (ECHEC)
+    - Envoi d'un message d'échec d'accès à la base de données  (ÉCHEC)
 2. La requête n'existe pas : 
-    - Envoi d'un message d'échec de fermeture de la requête (ECHEC)
+    - Envoi d'un message d'échec de fermeture de la requête (ÉCHEC)
 
 
 ***
 
 #### Cas d'utilisation 15 : Visualiser toutes les requêtes
 **Nom :** Visualiser toutes les requêtes <br>
-**Contexte d'utilisation :** Les reprographes doivent pouvoir voir tous les requêtes. <br>
-**Portée :** Systéme boite noir <br>
+**Contexte d'utilisation :** Les reprographes doivent pouvoir voir toutes les requêtes. <br>
+**Portée :** Système boîte noir <br>
 **Niveau :** Utilisateur  <br>
 **Acteur principal :** Reprographe <br>
 **Précondition :** Le reprographe est connecté <br>
-**Garanties en cas de succés :** Les requêtes pourront être visualiser <br>
+**Garanties en cas de succès :** Les requêtes pourront être visualisées <br>
 **Déclencheur :** Le reprographe fait une demande de visualisation de requête <br>
 **Scénario nominal :** <br>
 1. Le reprographe fait une demande de visualisation
-2. Une intéraction à lieu avec la base de données
-3. Les donnés sont affiché
+2. Une interaction a lieu avec la base de données
+3. Les données sont affichées
 
 **Exception :**
 
 1. Impossible d'accéder à la base de données :
-    - Envoi d'un message d'échec d'accés à la base de données  (ECHEC)
+    - Envoi d'un message d'échec d'accès à la base de données  (ÉCHEC)
 
 ***
 
 #### Cas d'utilisation 16 : Consulter un tableau de bord
 **Nom :** Consulter un tableau de bord <br>
 **Contexte d'utilisation :** Un utilisateur fait une demande pour visualiser ses demandes de reprographie <br>
-**Portée :** Systéme boite noir <br>
+**Portée :** Système boîte noir <br>
 **Niveau :** Utilisateur  <br>
 **Acteur principal :** Utilisateur <br>
-**Précondition :** L'utilisateur doit être connecter <br>
-**Garanties en cas de succès :** Les requêtes sont affiché  <br>
-**Garanties minimales :** Seul les requêtes de l'utilisateur peuvent être affichés
+**Précondition :** L'utilisateur doit être connecté <br>
+**Garanties en cas de succès :** Les requêtes sont affichées  <br>
+**Garanties minimales :** Seules les requêtes de l'utilisateur peuvent être affichées <br>
 **Déclencheur :** L'utilisateur fait une demande de visualisation des ses requêtes <br>
 **Scénario nominal :** <br>
 1. L'utilisateur fait une demande de visualisation
-2. Une intéraction à lieu avec la base de données
-3. Les donnés sont affiché
+2. Une interaction a lieu avec la base de données
+3. Les données sont affichées
 
 **Exception :**
 1. Impossible d'accéder à la base de données :
-    - Envoi d'un message d'échec d'accés à la base de données  (ECHEC)
+    - Envoi d'un message d'échec d'accès à la base de données  (ÉCHEC)
 
 
 
@@ -546,53 +546,53 @@ a. Impossible d'accéder à la base de données :
 
 #### Cas d'utilisation 17 : Authentification
 **Nom :** Authentification <br>
-**Contexte d'utilisation :** Un utilisateur veut changer entre être connecter et déconnecter <br>
-**Portée :** Sous-Systéme <br>
+**Contexte d'utilisation :** Un utilisateur veut changer entre être connecté et déconnecté <br>
+**Portée :** Sous-Système <br>
 **Niveau :** Sous-Fonction  <br>
-**Acteur principal :** Systéme <br>
+**Acteur principal :** Système <br>
 **Intervenant :** Utilisateur <br>
 **Précondition :** Utilisateur <br>
 **Garanties en cas de succès :** Utilisateur sera Connecter/Déconnecter <br>
-**Déclencheur :** Reception d'une demande d'authentification <br>
+**Déclencheur :** Réception d'une demande d'authentification <br>
 **Scénario nominal Connection :** <br>
-1. Utilisateur fait une demande de connection
-2. Une intéraction à lieu avec la base de données
-3. Comparaison des informations avec celle de l'utilisateur
-4. Connection aux compte de l'utilisateur
+1. Utilisateur fait une demande de connexion
+2. Une interaction a lieu avec la base de données
+3. Comparaison des informations avec celles de l'utilisateur
+4. Connection aux comptes de l'utilisateur
 
 **Exception Connection :**
 1. L'utilisateur n'a pas rempli tous les champs obligatoires du formulaire :
     - Un message d'erreur est envoyé à l'utilisateur (ÉCHEC).
 2. Impossible d'accéder à la base de données :
-    - Un message d'erreur est envoyé à l'utilisateur pour échec d'accés à la base de données (ÉCHEC).
+    - Un message d'erreur est envoyé à l'utilisateur pour échec d'accès à la base de données (ÉCHEC).
 3. Les identifiants de l'utilisateur ne figurent pas dans la base de données :
-    - Un message d'échec de connection est envoyé à l'utilisateur (ÉCHEC).
+    - Un message d'échec de connexion est envoyé à l'utilisateur (ÉCHEC).
 4. Le mot de passe fourni n'est pas valide :
-    - Un message d'échec de connection est envoyé à l'utilisateur (ÉCHEC).
+    - Un message d'échec de connexion est envoyé à l'utilisateur (ÉCHEC).
 5. Échec de la connexion :
-    - Un message d'échec de connection est envoyé à l'utilisateur (ÉCHEC).
+    - Un message d'échec de connexion est envoyé à l'utilisateur (ÉCHEC).
 
 **Scénario nominal Déconnection :**
-1. Utilisateur fait une demande de Déconnection
-2. L'utilisateur est déconnecter de son compte
-3. Affichage d'un message de validation de déconnection
+1. Utilisateur fait une demande de déconnexion
+2. L'utilisateur est déconnecté de son compte
+3. Affichage d'un message de validation de déconnexion
 
 **Exception Déconnection :**
-1. Échec de déconnection :
-    - Un message d'erreur est envoyé à l'utilisateur pour échec de déconnection (ÉCHEC)
+1. Échec de déconnexion :
+    - Un message d'erreur est envoyé à l'utilisateur pour échec de déconnexion (ÉCHEC)
 
 ***
-#### Cas d'utilisation 18 : Consulter page d'acceuil
-**Nom :** Consulter page d'acceuil <br>
-**Contexte d'utilisation :**  <br>
-**Portée :** Sous-systéme <br>
+#### Cas d'utilisation 18 : Consulter page d'accueil
+**Nom :** Consulter page d'accueil <br>
+**Contexte d'utilisation :** Un visiteur veut accéder à l'application <br>
+**Portée :** Sous-Système <br>
 **Niveau :** Sous-Fonction <br>
-**Acteur principal :** Systéme <br>
+**Acteur principal :** Système <br>
 **Garanties en cas de succès :** Connection au site réussie <br>
 **Déclencheur :** Un visiteur souhaite accéder au site <br>
 **Scénario nominal :** <br>
-1. Le visiteur fait une demande de connection au site
-2. Le systéme le connecte à l'application
+1. Le visiteur fait une demande de connexion au site
+2. Le système le connecte à l'application
 
 
 
