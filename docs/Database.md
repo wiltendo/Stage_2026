@@ -111,7 +111,7 @@ Cette relation est représentée par le champ user dans la collection Ticket, qu
 
 <i><a name="fg1"></a>Figure 1: Diagramme CDM.</i>
 
-<img height="300" width="400" src="./Modèle UML/Sae_Mcd.png" title="Database CDM Model"/>
+<img height="300" width="400" src="./img/Mcd_DataBase.png" title="Database CDM Model"/>
 
 
 ## <a name="p3"></a>III – LDM
@@ -126,4 +126,4 @@ Une fonction d'auto-incrémentation sera utilisée pour générer automatiquemen
 
 <i><a name="fg2"></a>Figure 2: diagramme Mld.</i>
 
-<img height="90" width="400" src="./Modèle UML/Sae_Mld.png" title="Database LDM Model"/>
+<img height="90" width="400" src="./img/Mld_DataBase.png" title="Database LDM Model"/>
