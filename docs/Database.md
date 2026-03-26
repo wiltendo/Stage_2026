@@ -1,7 +1,7 @@
 # Stage 2026 - Database
 
 <br><br>
-Ce document décrit la base de données, notamment ses Collections, ses vues, ses utilisateurs et leurs droits.
+Ce document décrit la base de données, notamment ses collections, ses vues, ses utilisateurs et leurs droits.
 
 Ce document est complété par divers schémas illustrant les relations entre les différents éléments.
 
@@ -23,7 +23,7 @@ Ce document est complété par divers schémas illustrant les relations entre le
 
 ## <a name="p1"></a> I - Analyse
 
-Pour ce projet, la base de données devra stocker les utilisateurs ainsi que leur demandes de reprographie.
+Pour ce projet, la base de données devra stocker les utilisateurs ainsi que leurs demandes de reprographie.
 
 Les données seront stockées dans différentes collections.
 
@@ -39,19 +39,19 @@ La base de données devra être sécurisée afin d’empêcher tout accès non a
 
 La collection Utilisateur a pour rôle de stocker les informations des utilisateurs de la plateforme ainsi que leurs rôles.
 
-La Collection Utilisateur contiendra les champs suivantes :
-- `Id` : Colloen contenant l'identifiant de l'utilisateur. Elle est la l'ObjectId de la Collection.
-- `Mail` : Collone contenant le mail de l'utilisateur.
-- `Nom` : Collone stockant le nom de l'utilisateur.
-- `Prenom` : Collone stockant le prénom de l'utilisateur.
-- `Mdp`: Collone contenant le mot de passe de l'utilisateur. Utiliser pour la connexion
-- `Département` : Collone contenant le département de l'utilisateur. Restrainte sur une liste définie de possibilités.
-- `Rôle`: Collone contenant le rôle de l'utilisateur. Restrainte sur une liste définie de possibilités.
+La collection Utilisateur contiendra les champs suivants :
+- `Id` : Champ contenant l'identifiant de l'utilisateur. Elle est la l'ObjectId de la Collection.
+- `Mail` : Champ contenant le mail de l'utilisateur.
+- `Nom` : Champ stockant le nom de l'utilisateur.
+- `Prenom` : Champ stockant le prénom de l'utilisateur.
+- `Mdp`: Champ contenant le mot de passe de l'utilisateur. Utiliser pour la connexion
+- `Département` : Champ contenant le département de l'utilisateur. Restrainte sur une liste définie de possibilités.
+- `Rôle`: Champ contenant le rôle de l'utilisateur. Restrainte sur une liste définie de possibilités.
 
 **Exemple de document pour la collection Utilisateur :**
 
 { 
-  - "_id": "ObjectId",<
+  - "_id": "ObjectId",
   - "mail": "user@mail.com",
   - "nom": "Dupont",
   - "prenom": "Jean",
@@ -70,15 +70,15 @@ La Collection Ticket a pour rôle de stocker les informations des requêtes réa
 
 La Collection Utilisateur contiendra les colonnes suivantes :
 - `Id` : Identifiant unique pour chaque ticket. l'ObjectId de la Collection.
-- `Nom_Doc` : Collone stockant le nom du document déposé
-- `Type_Doc` : Collone stockant le type du document déposé
-- `Nb_page` : Collone stockant le nombre de pages du document déposé
-- `Recto` : Collone contenant un boolean indiquant si le document doit être imprimé Recto-Verso ou seulement Recto
-- `Agrafe` : Collone stockant un boolean indiquant si le document doit être attaché avec des agrafes ou non
-- `date_creation` : Collone stockant une date indiquant le moment de la création du ticket
-- `date_retour` : Collone stockant une date indiquant la date limite du ticket
-- `Status` : Collone stockant l'état du ticket. Restrainte sur une liste définie de possibilités
-- `User` : Collone stockant une Référence au champ "_id" de la Collection "Utilisateur", elle indique quel utilisateur est associé à la requête. 
+- `Nom_Doc` : Champ stockant le nom du document déposé
+- `Type_Doc` : Champ stockant le type du document déposé
+- `Nb_page` : Champ stockant le nombre de pages du document déposé
+- `Recto` : Champ contenant un boolean indiquant si le document doit être imprimé Recto-Verso ou seulement Recto
+- `Agrafe` : Champ stockant un boolean indiquant si le document doit être attaché avec des agrafes ou non
+- `date_creation` : Champ stockant une date indiquant le moment de la création du ticket
+- `date_retour` : Champ stockant une date indiquant la date limite du ticket
+- `Status` : Champ stockant l'état du ticket. Restrainte sur une liste définie de possibilités
+- `User` : Champ stockant une Référence au champ "_id" de la Collection "Utilisateur", elle indique quel utilisateur est associé à la requête. 
 
 **Exemple de document pour la collection Ticket :**
 
@@ -93,7 +93,6 @@ La Collection Utilisateur contiendra les colonnes suivantes :
   - "date_retour": "2026-02-15",
   - "status": "En attente",
   - "user_id": "ObjectId"
-
 }
 
 
@@ -115,13 +114,6 @@ Cette relation est représentée par le champ user dans la collection Ticket, qu
 
 
 ## <a name="p3"></a>III – LDM
-<br><br>
-
-<b> Explication de certains points :</b>
-
-- Auto-increment:<br>
-Une fonction d'auto-incrémentation sera utilisée pour générer automatiquement un identifiant unique pour chaque nouvel enregistrement dans les Collections « Utilisateur » et « Ticket ».<br>
-
 <br><br>
 
 <i><a name="fg2"></a>Figure 2: diagramme Mld.</i>
