@@ -49,11 +49,13 @@ Un ticket devra contenir les informations suivantes :
 - Le nom du Fichier
 - Le type à imprimer. 
 - Le nombre de pages du document, afin d'estimer la charge de travail.
+- Le nombre d'exemplaire à imprimer.
 - Une option recto ou recto-verso (valeur booléenne).
 - Une option agrafe indiquant si les pages doivent être agrafées ou non (valeur booléenne).
-- Une date de création de la demande
+- Une date de création de la demande.
 - Une date de retour correspondant à la date limite d'impression du document.
-- L'utilisateur ayant créé la demande
+- L'utilisateur ayant créé la demande.
+- Le Reprographe qui soccupe de la demande.
 
 Chaque ticket possède également un état (status) permettant de connaître l'avancement de la demande, un ticket peut avoir trois états:
 - Ouvert (état par défaut du ticket)
@@ -86,6 +88,7 @@ Un compte utilisateur sera composé des informations suivantes :
 - Mot de passe
 - Adresse e-mail
 - Département
+- Rôle
 
 Le mot de passe sera associé au compte utilisateur et devra être chiffré avant d’être stocké dans la base de données afin de sécuriser l’accès au système.
 
