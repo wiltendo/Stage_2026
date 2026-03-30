@@ -73,12 +73,14 @@ La Collection Utilisateur contiendra les colonnes suivantes :
 - `Nom_Doc` : Champ stockant le nom du document déposé
 - `Type_Doc` : Champ stockant le type du document déposé
 - `Nb_page` : Champ stockant le nombre de pages du document déposé
+- `Nb_exemplaire` : Champ stockant le nombre d'exemplaire du document
 - `Recto` : Champ contenant un boolean indiquant si le document doit être imprimé Recto-Verso ou seulement Recto
 - `Agrafe` : Champ stockant un boolean indiquant si le document doit être attaché avec des agrafes ou non
 - `date_creation` : Champ stockant une date indiquant le moment de la création du ticket
 - `date_retour` : Champ stockant une date indiquant la date limite du ticket
 - `Status` : Champ stockant l'état du ticket. Restrainte sur une liste définie de possibilités
-- `User` : Champ stockant une Référence au champ "_id" de la Collection "Utilisateur", elle indique quel utilisateur est associé à la requête. 
+- `User` : Champ stockant une Référence au champ "_id" de la Collection "Utilisateur", elle indique quel utilisateur est associé à la requête.
+- `Reprographe` : Champ stockant une Référence au champ "_id" de la Collection "Utilisateur", elle indique quel Reprographe est associé à la requête.
 
 **Exemple de document pour la collection Ticket :**
 
@@ -87,12 +89,14 @@ La Collection Utilisateur contiendra les colonnes suivantes :
   - "nom_doc": "rapport.pdf",
   - "type_doc": "PDF",
   - "nb_pages": 10,
+  - "nb_exemplaire":10,
   - "recto_verso": true,
   - "agrafe": false,
   - "date_creation": "2026-02-10",
   - "date_retour": "2026-02-15",
   - "status": "En attente",
-  - "user_id": "ObjectId"
+  - "user_id": "ObjectId",
+  - "Reprographe" : "ObjectId"
 }
 
 
