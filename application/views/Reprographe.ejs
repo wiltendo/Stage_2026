@@ -1,0 +1,77 @@
+<%- include('fragments/head.ejs')%>
+
+</head>
+<body>
+    <div class="page">
+<%- include('fragments/navigation.ejs')%>
+
+<main>
+    <h1>Demande Ouvert</h1>
+    <br>
+    <% console.log(listeRequeteOuvert);
+    if (listeRequeteOuvert.length == 0) {%>
+        <p>Il n'y a pas de demande</p>
+    <% } else { %>
+        <div style="display: flex">
+        <% for (let requete of listeRequeteOuvert) { %>
+                <div style="margin-right: 50px;">
+                    <form action="/Reprographe/TicketTraitement" method="POST">
+                    <button type="submit">
+                    <table>
+                        <tbody>
+                            <tr><td><%=requete.date_creation.toLocaleString() %></td></tr>
+                            <tr><td>Limite : <%=requete.date_retour.toLocaleDateString() %></td></tr>
+                            <tr>
+                                <td><strong>Nom Document : </strong><%=requete.Nom_Doc %>.<%=requete.Type_Doc %></td>
+                            </tr>
+                            <tr><td><strong>Nombre Exemplaire : </strong><%=requete.Nb_exemplaire %></td></tr>
+                            <tr><td><strong>Nombre page : </strong><%=requete.Nb_page %></td></tr>
+                            <tr><td><strong>Recto : </strong><%=requete.Recto %></td></tr>
+                            <tr><td><strong>Agrafe : </strong><%=requete.Agrafe %></td></tr>
+                        </tbody>
+                    </table>
+                    </button>
+                    <input type="hidden" name="idTicket" value=<%= requete._id %> />
+                    </form>
+                </div>
+        <% } %>
+        </div>
+    <% } %>
+
+    <br><br>
+    <h1>Demande en Traitement</h1>
+    <br>
+    <% console.log(listeRequeteTraitement);
+    if (listeRequeteTraitement.length == 0) {%>
+        <p>Il n'y a pas de demande</p>
+    <% } else { %>
+        <div style="display: flex;">
+        <% for (let requete of listeRequeteTraitement) { %>
+                <div style="margin-right: 50px;">
+                    <table style="border: solid black 1px;">
+                        <tbody>
+                            <tr><td><%=requete.date_creation.toLocaleString() %></td></tr>
+                            <tr><td>Limite : <%=requete.date_retour.toLocaleDateString() %></td></tr>
+                            <tr><td><strong>Nom Document : </strong><%=requete.Nom_Doc %>.<%=requete.Type_Doc %></td></tr>
+                            <tr><td><strong>Nombre Exemplaire : </strong><%=requete.Nb_exemplaire %></td></tr>
+                            <tr><td><strong>Nombre page : </strong><%=requete.Nb_page %></td></tr>
+                            <tr><td><strong>Recto : </strong><%=requete.Recto %></td></tr>
+                            <tr><td><strong>Agrafe : </strong><%=requete.Agrafe %></td></tr>    
+                            <tr>
+                                <td><button>Télécharger</button></td>
+                                    
+                                <form action="/Reprographe/TicketFermer" method="POST">
+                                    <td><button>Fermer Ticket</button></td>
+                                    <input type="hidden" name="idTicket" value=<%= requete._id %> />
+                                </form>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            <% } %>
+        </div>
+    <% } %>
+</main>
+
+<%- include('fragments/foot.ejs')%>
+

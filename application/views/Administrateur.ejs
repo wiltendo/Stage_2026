@@ -1,0 +1,96 @@
+<%- include('fragments/head.ejs')%>
+<link rel="stylesheet" href="/css/inscription_connexion.css">
+<script src="afficherMDP.js"></script>
+
+</head>
+<body>
+    <div class="page">
+<%- include('fragments/navigation.ejs')%>
+
+<main>
+<div class="container" id="container">
+   <div class="form_container">
+       <div class="form_connexion">
+           <form action="/Administrateur/Reprographe" method="POST">
+               <h1>Inscription Reprographe</h1>
+               <div class="info-bulle">
+                   <label for="name">Nom du Reprographe
+                       <input class="inputForm" type="text" name="name" id="name" required>
+                   </label>
+               </div>
+
+               <div class="info-bulle">
+                   <label for="Prénom">Prénom du Reprographe
+                       <input class="inputForm" type="text" name="Prénom" id="Prénom" required>
+                   </label>
+               </div>
+
+               <div class="champs-password">
+                   <div class="info-bulle">
+                       <label for='mdp'>Mot de passe <br>
+                           <input id='mdp' type='password' name ='password' class='inputForm' required>
+                        </label>
+                   </div>
+
+                   <div class="password-show" onclick="showPassword(this)" onkeydown="showPassword(this)" tabindex="0">
+                       <img src="img/visible.png" alt="afficher le mot de passe">
+                   </div>
+                   <div class="password-hide" onclick="hidePassword(this)" onkeydown="hidePassword(this)" tabindex="0">
+                       <img src="img/hidden.png" alt="cacher le mot de passe">
+                   </div>
+               </div>
+               <div class="info-bulle">
+                   <label for="Mail">Mail du Reprographe
+                       <input class="inputForm" type="email" name="Mail" id="Mail" required>
+                   </label>
+               </div>
+
+                <div class="info-bulle">
+                   <label for="Département">Département
+                       <select class="inputForm" name="Département" id="Département">
+                            <option value="Reprographe">Reprographe</option>
+                            <option value="INFO">INFO</option>
+                            <option value="GEII">GEII</option>
+                            <option value="MMI">MMI</option>
+                            <option value="RT">RT</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                   </label>
+                </div>
+                <input class="button" type="submit" value="Valider" id="submit">
+            </form>
+       </div>
+   </div>
+</div>    
+
+<div class="container" id="container">
+    <div class="form_container">
+        <h1>Département</h1>
+        <div style="display:flex">
+            <!-- Partie liste Départment-->
+            <table style="margin-right: 50px;">
+                <thead>
+                    <tr>
+                        <th>Liste des Départements</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>INFO</td></tr>
+                    <tr><td>GEII</td></tr>
+                    <tr><td>MMI</td></tr>
+                    <tr><td>RT</td></tr>
+                </tbody>
+            </table>
+
+            <!-- Partie liste Boutton-->
+            <div style="display: grid;"> 
+                <button style="background-color: lightsalmon;">Ajouter</button>
+                <button style="background-color: lightgrey;">Modifier</button>
+                <button style="background-color: lightcoral;">Enlever</button>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+<%- include('fragments/foot.ejs')%>
+

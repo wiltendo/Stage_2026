@@ -1,0 +1,26 @@
+<header>
+    <div id="nav_conteneur">
+            <a href="/">Accueil</a>
+
+            <% if(role == "Utilisateur") { %>
+                <a href="/Formulaire">Formulaire</a>
+                <a href="/Tableau_bord">Tableau de Bord</a>
+            <% } %>
+
+            <% if(role == "Reprographe") { %>
+                <a href="/Reprographe">Reprographie</a>
+            <% } %>
+
+            <% if(role == "Administrateur") { %>
+                <a href="/Administrateur">Administrateur</a>
+            <% } %>
+
+            <% if(log != true) { %>
+                <a href="/Inscription">Inscription</a>
+                <a href="/Auth">Authentification</a>
+            <% } else { %>
+                <a href="/out">Deconnection</a>
+            <% } %>
+        </ul>
+    </div>
+</header>

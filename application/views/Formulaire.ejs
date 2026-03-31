@@ -1,0 +1,73 @@
+<%- include('fragments/head.ejs')%>
+<link rel="stylesheet" href="/css/inscription_connexion.css">
+
+<style>
+
+</style>
+</head>
+<body>
+    <div class="page">
+<%- include('fragments/navigation.ejs')%>
+
+<main>
+<div class="container" id="container">
+   <div class="form_container">
+       <div class="form_connexion">
+           <form action="/Formulaire" method="POST">
+               <h1>Formulaire</h1>
+               <div class="info-bulle">
+                   <label for="name_doc">Nom du document :
+                       <input class="inputForm" type="text" name="name_doc" id="name_doc" required>
+                   </label>
+               </div>
+
+                <div class="info-bulle">
+                   <label for="Type_fic">Type Fichier :
+                       <select class="inputForm" name="Type_fic" id="Type_fic">
+                            <option value="pdf">PDF</option>
+                        </select>
+                   </label>
+                </div>
+
+                <div class="info-bulle">
+                   <label for="date_retour">Date de retour :
+                       <input class="inputForm" type="date" name="date_retour" id="date_retour" required>
+                   </label>
+               </div>
+
+                <div class="info-bulle">
+                   <label for="nb_exemplaire">Nombre d'exemplaire :
+                       <input class="inputForm" type="number" name="nb_exemplaire" id="nb_exemplaire" required>
+                   </label>
+               </div>
+
+               <div class="info-bulle">
+                   <label for="nb_page">Nombre de pages :
+                       <input class="inputForm" type="number" name="nb_page" id="nb_page" required>
+                   </label>
+               </div>
+
+               <div class="info-bulle">
+                    <input type="radio" name="recto_verso" value="true" checked />
+                    <label for="huey">Recto/Verso</label>
+
+                    <input type="radio" name="recto_verso" value="false"  />
+                    <label for="huey">Recto</label>
+               </div>
+
+               <div class="info-bulle">
+                    <input type="radio" name="Agrafe" value="true" />
+                    <label for="huey">Oui</label>
+
+                    <input type="radio" name="Agrafe" value="false" checked  />
+                    <label for="huey">Non</label>
+               </div>
+                <input class="button" type="submit" value="Valider" id="submit">
+            </form>
+       </div>
+   </div>
+</div>
+
+</main>
+<%- include('fragments/foot.ejs')%>
+

@@ -1,0 +1,53 @@
+<%- include('fragments/head.ejs')%>
+
+<style>
+
+</style>
+</head>
+<body>
+    <div class="page">
+<%- include('fragments/navigation.ejs')%>
+
+<main>
+    <h1 id="title">Tableau de Bord</h1>
+    <% console.log(listeRequeteUser);
+    if (listeRequeteUser.length == 0) {%>
+        <p>Il n'y a pas de requete</p>
+    <% } else { %>
+    <table class="table-demandes-perso table-popup" style="text-align: center;">
+        <thead>
+            <tr>
+                <th>Date création</th>
+                <th>Date Retour</th>
+                <th>Nom Document</th>
+                <th>Nombre Exemplaire</th>
+                <th>Status</th>
+                <th>Recto-Verso</th>
+                <th>Agrafe</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let requete of listeRequeteUser) { %>
+                <tr>
+                    <td><%= requete.date_creation.toLocaleString()%></td>
+                    <td><%= requete.date_retour.toLocaleDateString()%></td>
+                    <td><%= requete.Nom_Doc%>.<%=requete.Type_Doc%></td>
+                    <td><%= requete.Nb_exemplaire%></td>
+                    <% if(requete.Status == "Ouvert"){%>
+                        <td style="background-color: red;">Ouvert</td>  
+                    <%} else if (requete.Status == "En cours de traitement") {%>
+                        <td style="background-color: orange;">En cours de traitement</td>  
+                    <%} else {%>
+                        <td style="background-color: green;">Complété</td>  
+                    <%}%>
+                    <td><% if(requete.Recto == true){%>Oui<% }else{%>Non<%}%></td>
+                    <td><% if(requete.Agrafe == true){%>Oui<% }else{%>Non<%}%></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <% } %>
+</main>
+
+<%- include('fragments/foot.ejs')%>
+

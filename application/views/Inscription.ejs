@@ -1,0 +1,97 @@
+<%- include('fragments/head.ejs')%>
+<link rel="stylesheet" href="/css/inscription_connexion.css">
+<script src="afficherMDP.js"></script>
+
+</head>
+<body>
+    <div class="page">
+<%- include('fragments/navigation.ejs')%>
+
+<main>
+<div class="container" id="container">
+   <div class="form_container">
+       <div class="form_connexion">
+           <form action="/Inscription" method="POST">
+               <h1>Inscription</h1>
+               <div class="info-bulle">
+                   <label for="name">Nom de l'utilisateur
+                       <input class="inputForm" type="text" name="name" id="name" required>
+                   </label>
+               </div>
+
+               <ul id="Valid_name" style="display: none;">
+                   <li id="length_name" class="invalid">doit contenir au moins 8 caractères</li>
+                   <li id="majuscule_name" class="invalid">doit contenir au moins 1 majuscule</li>
+                   <li id="minuscule_name" class="invalid">doit contenir au moins 1 minuscule</li>
+                   <li id="chiffre_name" class="valid">Ne doit pas contenir de chiffre</li>
+                   <li id="special_name" class="valid">Ne doit pas contenir de caractère spécial (%?*#!)</li>
+               </ul>
+
+               <div class="info-bulle">
+                   <label for="Prénom">Prénom de l'utilisateur
+                       <input class="inputForm" type="text" name="Prénom" id="Prénom" required>
+                   </label>
+               </div>
+
+               <ul id="Valid_Prénom" style="display: none;">
+                   <li id="length_Prénom" class="invalid">doit contenir au moins 8 caractères</li>
+                   <li id="majuscule_Prénom" class="invalid">doit contenir au moins 1 majuscule</li>
+                   <li id="minuscule_Prénom" class="invalid">doit contenir au moins 1 minuscule</li>
+                   <li id="chiffre_Prénom" class="valid">Ne doit pas contenir de chiffre</li>
+                   <li id="special_Prénom" class="valid">Ne doit pas contenir de caractère spécial (%?*#!)</li>
+               </ul>
+
+               <div class="champs-password">
+                   <div class="info-bulle">
+                       <label for='mdp'>Mot de passe <br>
+                           <input id='mdp' type='password' name ='password' class='inputForm' required>
+                        </label>
+                   </div>
+
+                   <div class="password-show" onclick="showPassword(this)" onkeydown="showPassword(this)" tabindex="0">
+                       <img src="img/visible.png" alt="afficher le mot de passe">
+                   </div>
+                   <div class="password-hide" onclick="hidePassword(this)" onkeydown="hidePassword(this)" tabindex="0">
+                       <img src="img/hidden.png" alt="cacher le mot de passe">
+                   </div>
+               </div>
+
+               <ul id="Valid_mdp" style="display: none;">
+                   <li id="length_mdp" class="invalid">doit contenir au moins 8 caractères</li>
+                   <li id="majuscule_mdp" class="invalid">doit contenir au moins 1 majuscule</li>
+                   <li id="minuscule_mdp" class="invalid">doit contenir au moins 1 minuscule</li>
+                   <li id="chiffre_mdp" class="invalid">doit contenir au moins 1 chiffre</li>
+                   <li id="special_mdp" class="invalid">doit contenir au moins 1 caractère spécial (%?*#!)</li>
+               </ul>
+
+
+               <div class="info-bulle">
+                   <label for="Mail">Mail de l'utilisateur
+                       <input class="inputForm" type="email" name="Mail" id="Mail" required>
+                   </label>
+               </div>
+
+                <div class="info-bulle">
+                   <label for="Département">Département
+                       <select class="inputForm" name="Département" id="Département">
+                            <option value="INFO">INFO</option>
+                            <option value="GEII">GEII</option>
+                            <option value="MMI">MMI</option>
+                            <option value="RT">RT</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                   </label>
+                </div>
+                <div style="display: flex;">
+                    <input class="button" type="submit" value="S'inscrire" id="submit">
+                    <a class="button" style="margin-left:10px ;" href="/Auth">Se connecter</a>
+                </div>
+            </form>
+       </div>
+   </div>
+</div>
+
+<script src="/valid_password.js"></script>
+</main>
+<%- include('fragments/foot.ejs')%>
+
