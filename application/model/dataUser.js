@@ -11,7 +11,8 @@ const UserSchema = new mongoose.Schema({
     },
     Mail: {
         type: String,
-        required:true
+        required:true,
+        unique:true
     },
     Mdp: {
         type: String,

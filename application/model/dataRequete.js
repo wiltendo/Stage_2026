@@ -42,10 +42,17 @@ const RequeteSchema = new mongoose.Schema({
         ref:"User",
         required:true
     },
+    User_Name:{
+        type:String,
+        required:true
+    },
     Reprographe:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"User",
-        required:true,
+        default:null
+    },
+    Position_Fichier:{
+        type:String,
         default:null
     }
 
