@@ -8,20 +8,29 @@
 <%- include('fragments/navigation.ejs')%>
 
 <main>
-    <div class="container" id="container">
+<div class="container" id="container">
    <div class="form_container">
        <div class="form_connexion">
            <form action="/Auth" method="POST">
                <h1>Connexion</h1>
+                <% if(typeof(Erreur)!='undefined') {%>
+                    <h4 class="Erreur"><%=Erreur %></h4>
+                    <br>
+                    <br>
+                <%}%>
+
+
                <div class="info-bulle">
-                   <label for="Mail">Mail
+                   <label for="Mail"><strong>Mail</strong>
                        <input class="inputForm" type="email" name="Mail" id="Mail" required>
                    </label>
                </div>
 
+               <br>
+
                <div class="champs-password">
                    <div class="info-bulle">
-                       <label for='mdp'>Mot de passe <br>
+                       <label for='password'><strong>Mot de passe </strong>
                            <input id='mdp' type='password' name ='password' class='inputForm' required>
                         </label>
                    </div>
@@ -33,7 +42,16 @@
                        <img src="img/hidden.png" alt="cacher le mot de passe">
                    </div>
                </div>
+
+                <ul id="Valid_mdp" style="display: none;">
+                   <li id="length_mdp" class="invalid">doit contenir au moins 8 caractères</li>
+                   <li id="majuscule_mdp" class="invalid">doit contenir au moins 1 majuscule</li>
+                   <li id="minuscule_mdp" class="invalid">doit contenir au moins 1 minuscule</li>
+                   <li id="chiffre_mdp" class="invalid">doit contenir au moins 1 chiffre</li>
+                   <li id="special_mdp" class="invalid">doit contenir au moins 1 caractère spécial (%?*#!)</li>
+                </ul>
                
+                <br>
                 <div style="display: flex;">
                     <input class="button" type="submit" value="Connexion" id="submit">
                     <a class="button" style="margin-left:10px ;" href="/Inscription">Inscription</a>
@@ -42,6 +60,8 @@
        </div>
    </div>
 </div>
+
+<script src="/valid_password.js"></script>
 </main>
 <%- include('fragments/foot.ejs')%>
 

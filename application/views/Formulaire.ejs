@@ -13,40 +13,67 @@
 <div class="container" id="container">
    <div class="form_container">
        <div class="form_connexion">
-           <form action="/Formulaire" method="POST">
+           <form action="/Formulaire" method="POST" enctype="multipart/form-data">
                <h1>Formulaire</h1>
+
+                <% if(typeof(Erreur)!='undefined') {%>
+                    <h4 class="Erreur"><%=Erreur %></h4>
+                    <br>
+                    <br>
+                <%}%>
+
                <div class="info-bulle">
-                   <label for="name_doc">Nom du document :
+                   <label for="name_doc"><strong>Nom du document :</strong>
                        <input class="inputForm" type="text" name="name_doc" id="name_doc" required>
                    </label>
                </div>
 
+                <br>
+                
                 <div class="info-bulle">
-                   <label for="Type_fic">Type Fichier :
+                   <label for="Type_fic"><strong>Type Fichier :</strong>
                        <select class="inputForm" name="Type_fic" id="Type_fic">
-                            <option value="pdf">PDF</option>
+                            <% for (let requete of Type_Document) {%>
+                                <option value=<%=requete%>><%=requete%></option>
+                            <% } %>
                         </select>
                    </label>
                 </div>
 
+                <br>
+
                 <div class="info-bulle">
-                   <label for="date_retour">Date de retour :
+                    <label for="sampleFile"><strong>Fichier :</strong> <br>
+                        <input type="file" name="sampleFile">
+                    </label>
+                </div>
+
+                <br>
+
+                <div class="info-bulle">
+                   <label for="date_retour"><strong>Date de retour :</strong>
                        <input class="inputForm" type="date" name="date_retour" id="date_retour" required>
                    </label>
                </div>
 
+               <br>
+                
                 <div class="info-bulle">
-                   <label for="nb_exemplaire">Nombre d'exemplaire :
-                       <input class="inputForm" type="number" name="nb_exemplaire" id="nb_exemplaire" required>
+                   <label for="nb_exemplaire"><strong>Nombre d'exemplaire :</strong>
+                       <input class="inputForm" type="number" name="nb_exemplaire" id="nb_exemplaire" value="1" required>
                    </label>
                </div>
 
+               <br>
+                
                <div class="info-bulle">
-                   <label for="nb_page">Nombre de pages :
-                       <input class="inputForm" type="number" name="nb_page" id="nb_page" required>
+                   <label for="nb_page"><strong>Nombre de pages :</strong>
+                       <input class="inputForm" type="number" name="nb_page" id="nb_page" value="1" required>
                    </label>
                </div>
 
+               <br>
+                
                <div class="info-bulle">
                     <input type="radio" name="recto_verso" value="true" checked />
                     <label for="huey">Recto/Verso</label>
@@ -55,6 +82,8 @@
                     <label for="huey">Recto</label>
                </div>
 
+               <br>
+                
                <div class="info-bulle">
                     <input type="radio" name="Agrafe" value="true" />
                     <label for="huey">Oui</label>
@@ -62,6 +91,9 @@
                     <input type="radio" name="Agrafe" value="false" checked  />
                     <label for="huey">Non</label>
                </div>
+               
+               <br>
+                
                 <input class="button" type="submit" value="Valider" id="submit">
             </form>
        </div>

@@ -21,6 +21,7 @@
                         <tbody>
                             <tr><td><%=requete.date_creation.toLocaleString() %></td></tr>
                             <tr><td>Limite : <%=requete.date_retour.toLocaleDateString() %></td></tr>
+                            <tr><td><strong>Utilisateur : </strong> <%=requete.User_Name %></td></tr>
                             <tr>
                                 <td><strong>Nom Document : </strong><%=requete.Nom_Doc %>.<%=requete.Type_Doc %></td>
                             </tr>
@@ -51,14 +52,18 @@
                     <table style="border: solid black 1px;">
                         <tbody>
                             <tr><td><%=requete.date_creation.toLocaleString() %></td></tr>
-                            <tr><td>Limite : <%=requete.date_retour.toLocaleDateString() %></td></tr>
+                            <tr><td><strong>Limite : </strong> <%=requete.date_retour.toLocaleDateString() %></td></tr>
+                            <tr><td><strong>Utilisateur : </strong> <%=requete.User_Name %></td></tr>
                             <tr><td><strong>Nom Document : </strong><%=requete.Nom_Doc %>.<%=requete.Type_Doc %></td></tr>
                             <tr><td><strong>Nombre Exemplaire : </strong><%=requete.Nb_exemplaire %></td></tr>
                             <tr><td><strong>Nombre page : </strong><%=requete.Nb_page %></td></tr>
                             <tr><td><strong>Recto : </strong><%=requete.Recto %></td></tr>
                             <tr><td><strong>Agrafe : </strong><%=requete.Agrafe %></td></tr>    
                             <tr>
-                                <td><button>Télécharger</button></td>
+                                <form action="/Reprographe/File" method="POST">
+                                    <td><button>Télécharger</button></td>
+                                    <input type="hidden" name="idTicket" value=<%= requete._id %> />
+                                </form>
                                     
                                 <form action="/Reprographe/TicketFermer" method="POST">
                                     <td><button>Fermer Ticket</button></td>

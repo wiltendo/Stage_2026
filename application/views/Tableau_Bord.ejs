@@ -14,16 +14,16 @@
     if (listeRequeteUser.length == 0) {%>
         <p>Il n'y a pas de requete</p>
     <% } else { %>
-    <table class="table-demandes-perso table-popup" style="text-align: center;">
+    <table class="table-demandes-perso table-popup" style="text-align: center;width: 100%;border-collapse: collapse;table-layout: fixed;" border="1" cellspacing="1" cellpadding="5">
         <thead>
             <tr>
-                <th>Date création</th>
-                <th>Date Retour</th>
-                <th>Nom Document</th>
-                <th>Nombre Exemplaire</th>
-                <th>Status</th>
-                <th>Recto-Verso</th>
-                <th>Agrafe</th>
+                <th >Date création</th>
+                <th >Date Retour</th>
+                <th >Nom Document</th>
+                <th >Nombre Exemplaire</th>
+                <th >Status</th>
+                <th >Recto-Verso</th>
+                <th >Agrafe</th>
             </tr>
         </thead>
         <tbody>
@@ -31,7 +31,7 @@
                 <tr>
                     <td><%= requete.date_creation.toLocaleString()%></td>
                     <td><%= requete.date_retour.toLocaleDateString()%></td>
-                    <td><%= requete.Nom_Doc%>.<%=requete.Type_Doc%></td>
+                    <td style="word-wrap: break-word;overflow-wrap: break-word;"><%= requete.Nom_Doc%>.<%=requete.Type_Doc%></td>
                     <td><%= requete.Nb_exemplaire%></td>
                     <% if(requete.Status == "Ouvert"){%>
                         <td style="background-color: red;">Ouvert</td>  
