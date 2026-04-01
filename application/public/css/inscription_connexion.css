@@ -10,7 +10,8 @@
 
 .container{
     position: relative;
-    min-height: 480px;
+    min-height: 300px;
+    min-width: 600px;
     width: fit-content;
     max-width: 100%;
     /*background: var(--col-white);

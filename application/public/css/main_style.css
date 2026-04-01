@@ -11,6 +11,10 @@ html, body {
   flex-direction: column;
 }
 
+.Erreur{
+    color: red;
+}
+
 main {
   display: grid;
   flex: 1;
