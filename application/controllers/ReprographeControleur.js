@@ -25,3 +25,18 @@ exports.postTicketFermer = async (req,res,next) => {
     )
     res.redirect('/Reprographe');
 }
+
+exports.postTéléchargerFichier = async (req,res,next) => {
+    console.log('middleware Reprographe Télécharger Fichier ', req.method);
+
+    const file = await Requete.findOne({ _id:req.body.idTicket },{Nom_Doc:1,Type_Doc:1,Position_Fichier:1})
+    const path = file.Position_Fichier + req.body.idTicket + '.' + file.Type_Doc;
+    const name = file.Nom_Doc + '.' + file.Type_Doc;
+    res.download(path, name, (err) => {
+        if (err) {
+            console.error(err);
+            return res.redirect('/Reprographe?Erreur="Fichier non trouvé"');
+        }
+        return res.redirect('/Reprographe');
+    });
+}
