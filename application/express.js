@@ -8,7 +8,6 @@ const mongoose = require("mongoose");
 
 const error404 = require('./controllers/error404');
 const AccueilRoutes = require('./routes/Accueil');
-const InscriptionRoutes = require('./routes/Inscription');
 const AuthRoutes = require('./routes/Authentification');
 const logoutRoutes = require('./routes/logout');
 const FormulaireRoutes = require('./routes/User');
@@ -34,14 +33,21 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname,'public')));
 app.use(session({secret: 'secret',resave: false, saveUninitialized: false}));
 
-app.use(function(req, res, next) {
+const fileUpload = require('express-fileupload');
+app.use(fileUpload());
+
+const Annexe = require('./model/dataAnnexe');
+
+app.use(async function(req, res, next) {
     res.locals.log = req.session.isLog;
     res.locals.role = req.session.role;
+    const dep = await Annexe.find({},{Valeur:1})
+    res.locals.Département =  dep[0].Valeur;
+    res.locals.Type_Document = dep[1].Valeur;
     console.log(req.session.role)
     next();
 });
 
-app.use(InscriptionRoutes);
 app.use(AuthRoutes);
 app.use(logoutRoutes);
 app.use(FormulaireRoutes);
