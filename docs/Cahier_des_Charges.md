@@ -56,6 +56,7 @@ Un ticket devra contenir les informations suivantes :
 - Une date de retour correspondant à la date limite d'impression du document.
 - L'utilisateur ayant créé la demande.
 - Le Reprographe qui soccupe de la demande.
+- La position du Fichier dans le serveur.
 
 Chaque ticket possède également un état (status) permettant de connaître l'avancement de la demande, un ticket peut avoir trois états:
 - Ouvert (état par défaut du ticket)
@@ -103,10 +104,9 @@ Cette liste pourra être modifiée ultérieurement par l’administrateur.
 #### <em> Plateforme web </em>
 
 La plateforme web sera divisée en plusieurs pages :
-- Page d'accueil : Change de contenu selon le type d'utilisateur, mais contient toujours le logo du site web, ainsi que son nom.
+- Page d'accueil : Page principale permettant d'accéder à l'aplication.
 - Page de connexion : Permet à un utilisateur non connecté d'entrer un login et un mot de passe pour se connecter.
-- Page d'inscription : Permet à un utilisateur non inscrit de créer un login et un mot de passe. Le formulaire devra être confirmé avec un captcha.
-- Page de profil : Permet de consulter les informations de son profil et de changer son mot de passe.
+- Page d'inscription : Permet à un utilisateur non inscrit de créer un login et un mot de passe.
 - Page de Ticket : Permettant à un utilisateur de remplir des formulaires pour réaliser des demandes de reprographie
 - Page de tableau de bord : Permettant à un utilisateur de voir ses requêtes réalisées et leurs statuts
 - Page de Reprographie : Seulement visible par un reprographe, elle permet de valider des demandes et de connaître les demandes réalisées par les utilisateurs
