@@ -8,7 +8,7 @@ exports.getAdministrateur = (req,res,next) => {
     console.log('middleware Administrateur', req.method);
     const erreurR = req.query.ErreurR;
         
-    res.render('Administrateur',{pageTitle:"Administrateur",ErreurR:erreur}); 
+    res.render('Administrateur',{pageTitle:"Administrateur",ErreurR:erreurR}); 
 }
 
 exports.postAddReprographe = async (req,res,next) => {

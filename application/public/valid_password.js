@@ -25,7 +25,7 @@ function valid(element,longueur,condition){
     const majusculeCritere = /[A-Z]/.test(mdp);
     const minusculeCritere = /[a-z]/.test(mdp);
     const chiffreCritere = /[0-9]/.test(mdp);
-    const specialCritere = /[%?*#!]/.test(mdp);
+    const specialCritere = /[%?*#!_-]/.test(mdp);
 
     // Mettre à jour les classes des critères
     updateCritere('length_'+element, lengthCritere == condition[0]);

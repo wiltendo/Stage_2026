@@ -1,9 +1,6 @@
 <%- include('fragments/head.ejs')%>
 <link rel="stylesheet" href="/css/inscription_connexion.css">
 
-<style>
-
-</style>
 </head>
 <body>
     <div class="page">
@@ -44,7 +41,7 @@
 
                 <div class="info-bulle">
                     <label for="sampleFile"><strong>Fichier :</strong> <br>
-                        <input type="file" name="sampleFile">
+                        <input type="file" name="sampleFile" id="sampleFile">
                     </label>
                 </div>
 
@@ -75,21 +72,25 @@
                <br>
                 
                <div class="info-bulle">
-                    <input type="radio" name="recto_verso" value="true" checked />
-                    <label for="huey">Recto/Verso</label>
+                    <fieldset style="padding: 10px;"> <legend>Recto/Verso</legend>
+                        <input type="radio" name="recto_verso" value="true" id="recto_verso1" checked />
+                        <label for="recto_verso1">Recto/Verso</label>
 
-                    <input type="radio" name="recto_verso" value="false"  />
-                    <label for="huey">Recto</label>
+                        <input type="radio" name="recto_verso" value="false" id="recto_verso2" />
+                        <label for="recto_verso2">Recto</label>
+                    </fieldset>
                </div>
 
                <br>
                 
                <div class="info-bulle">
-                    <input type="radio" name="Agrafe" value="true" />
-                    <label for="huey">Oui</label>
+                    <fieldset style="padding: 10px;"> <legend>Agrafe</legend>
+                        <input type="radio" name="Agrafe" value="true" id="Agrafe1" />
+                        <label for="Agrafe1">Oui</label>
 
-                    <input type="radio" name="Agrafe" value="false" checked  />
-                    <label for="huey">Non</label>
+                        <input type="radio" name="Agrafe" value="false" id="Agrafe2" checked  />
+                        <label for="Agrafe2">Non</label>
+                    </fieldset>
                </div>
                
                <br>

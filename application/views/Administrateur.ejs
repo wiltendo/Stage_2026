@@ -31,7 +31,7 @@
                    <li id="majuscule_name" class="invalid">doit contenir au moins 1 majuscule</li>
                    <li id="minuscule_name" class="invalid">doit contenir au moins 1 minuscule</li>
                    <li id="chiffre_name" class="valid">Ne doit pas contenir de chiffre</li>
-                   <li id="special_name" class="valid">Ne doit pas contenir de caractère spécial (%?*#!)</li>
+                   <li id="special_name" class="valid">Ne doit pas contenir de caractère spécial (%?*#!_-)</li>
                </ul>
 
                <br>
@@ -47,7 +47,7 @@
                    <li id="majuscule_Prénom" class="invalid">doit contenir au moins 1 majuscule</li>
                    <li id="minuscule_Prénom" class="invalid">doit contenir au moins 1 minuscule</li>
                    <li id="chiffre_Prénom" class="valid">Ne doit pas contenir de chiffre</li>
-                   <li id="special_Prénom" class="valid">Ne doit pas contenir de caractère spécial (%?*#!)</li>
+                   <li id="special_Prénom" class="valid">Ne doit pas contenir de caractère spécial (%?*#!_-)</li>
                </ul>
 
                <br>
@@ -72,7 +72,7 @@
                    <li id="majuscule_mdp" class="invalid">doit contenir au moins 1 majuscule</li>
                    <li id="minuscule_mdp" class="invalid">doit contenir au moins 1 minuscule</li>
                    <li id="chiffre_mdp" class="invalid">doit contenir au moins 1 chiffre</li>
-                   <li id="special_mdp" class="invalid">doit contenir au moins 1 caractère spécial (%?*#!)</li>
+                   <li id="special_mdp" class="invalid">doit contenir au moins 1 caractère spécial (%?*#!_-)</li>
                </ul>
 
                <br>
@@ -106,26 +106,45 @@
 <div class="container" id="container">
     <div class="form_container">
         <h1>Département</h1>
-        <div style="display:flex">
+        <div style="display:flex;align-items: flex-start;">
             <!-- Partie liste Départment-->
             <table style="margin-right: 50px;">
                 <thead style="background-color: orange;">
                     <tr>
-                        <th>Liste des Départements</th>
+                        <th style="padding: 10px;">Liste des Départements</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% for (let requete of Département) { if(requete!="Reprographe"){ %>
-                        <tr><td style="border: solid black 1px;background-color: lightgray;"><%=requete%></td></tr>
+                        <tr><td style="border: solid black 1px;background-color: lightgray;color: black;padding: 5px;"><%=requete%></td></tr>
                     <% }} %>
                 </tbody>
             </table>
 
             <!-- Partie liste Boutton-->
-            <div style="display: grid;"> 
-                <button style="background-color: lightsalmon;" onclick="document.getElementById('AddDep').style.display = 'block';document.getElementById('ModDep').style.display = 'none';document.getElementById('DelDep').style.display = 'none'">Ajouter</button>
-                <button style="background-color: lightgrey;" onclick="document.getElementById('AddDep').style.display = 'none';document.getElementById('ModDep').style.display = 'block';document.getElementById('DelDep').style.display = 'none'">Modifier</button>
-                <button style="background-color: lightcoral;" onclick="document.getElementById('AddDep').style.display = 'none';document.getElementById('ModDep').style.display = 'none';document.getElementById('DelDep').style.display = 'block'">Enlever</button>
+            <div style="display: grid;gap: 20px;"> 
+
+                <button style="background-color: lightsalmon;padding: 10px;" 
+                    onclick="document.getElementById('AddDep').style.display = 'block';
+                        document.getElementById('ModDep').style.display = 'none';
+                            document.getElementById('DelDep').style.display = 'none'">
+                    <strong>Ajouter</strong>
+                </button>
+
+                <button style="background-color: lightgrey;padding: 10px;" 
+                    onclick="document.getElementById('AddDep').style.display = 'none';
+                        document.getElementById('ModDep').style.display = 'block';
+                        document.getElementById('DelDep').style.display = 'none'">
+                    <strong>Modifier</strong>
+                </button>
+
+                <button style="background-color: lightcoral;padding: 10px;" 
+                    onclick="document.getElementById('AddDep').style.display = 'none';
+                        document.getElementById('ModDep').style.display = 'none';
+                        document.getElementById('DelDep').style.display = 'block'">
+                    <strong>Enlever</strong>
+                </button>
+
             </div>
         </div>
         <br>
@@ -143,7 +162,7 @@
         <form action="/Administrateur/ModDep" method="post" style="display: none;" id="ModDep">
             <div class="info-bulle">
                 <label for="AnModDep"><strong>Département à Modifier</strong></label>
-                <select class="inputForm" name="AnModDep">
+                <select class="inputForm" name="AnModDep" id="AnModDep">
                     <% for (let requete of Département) { if(requete!="Reprographe"){ %>
                         <option value=<%=requete%>><%=requete%></option>
                     <% }} %>
@@ -161,7 +180,7 @@
         <form action="/Administrateur/DelDep" method="post" style="display: none;" id="DelDep">
             <div class="info-bulle">
                 <label for="AnDelDep"><strong>Département à Supprimer</strong></label>
-                <select class="inputForm" name="AnDelDep">
+                <select class="inputForm" name="AnDelDep" id="AnDelDep">
                     <% for (let requete of Département) { if(requete!="Reprographe"){ %>
                         <option value=<%=requete%>><%=requete%></option>
                     <% }} %>

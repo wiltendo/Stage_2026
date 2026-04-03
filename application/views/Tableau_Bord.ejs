@@ -1,8 +1,5 @@
 <%- include('fragments/head.ejs')%>
 
-<style>
-
-</style>
 </head>
 <body>
     <div class="page">
@@ -14,34 +11,34 @@
     if (listeRequeteUser.length == 0) {%>
         <p>Il n'y a pas de requete</p>
     <% } else { %>
-    <table class="table-demandes-perso table-popup" style="text-align: center;width: 100%;border-collapse: collapse;table-layout: fixed;" border="1" cellspacing="1" cellpadding="5">
+    <table class="tableau_bord" border="1" >
         <thead>
             <tr>
-                <th >Date création</th>
-                <th >Date Retour</th>
-                <th >Nom Document</th>
-                <th >Nombre Exemplaire</th>
-                <th >Status</th>
-                <th >Recto-Verso</th>
-                <th >Agrafe</th>
+                <th class="Espace_table">Date création</th>
+                <th class="Espace_table">Date Retour</th>
+                <th class="Espace_table">Nom Document</th>
+                <th class="Espace_table">Nombre Exemplaire</th>
+                <th class="Espace_table">Status</th>
+                <th class="Espace_table">Recto-Verso</th>
+                <th class="Espace_table">Agrafe</th>
             </tr>
         </thead>
         <tbody>
             <% for (let requete of listeRequeteUser) { %>
                 <tr>
-                    <td><%= requete.date_creation.toLocaleString()%></td>
-                    <td><%= requete.date_retour.toLocaleDateString()%></td>
-                    <td style="word-wrap: break-word;overflow-wrap: break-word;"><%= requete.Nom_Doc%>.<%=requete.Type_Doc%></td>
-                    <td><%= requete.Nb_exemplaire%></td>
+                    <td class="Espace_table"><strong><%= requete.date_creation.toLocaleString()%></strong></td>
+                    <td class="Espace_table"><strong><%= requete.date_retour.toLocaleDateString()%></strong></td>
+                    <td class="Espace_table" style="word-wrap: break-word;overflow-wrap: break-word;"><%= requete.Nom_Doc%>.<%=requete.Type_Doc%></td>
+                    <td class="Espace_table"><%= requete.Nb_exemplaire%></td>
                     <% if(requete.Status == "Ouvert"){%>
-                        <td style="background-color: red;">Ouvert</td>  
+                        <td class="Espace_table" style="background-color: lightcoral;color: black;"><strong>Ouvert</strong></td>  
                     <%} else if (requete.Status == "En cours de traitement") {%>
-                        <td style="background-color: orange;">En cours de traitement</td>  
+                        <td class="Espace_table" style="background-color: lightsalmon;color: black;"><strong>En cours de traitement</strong></td>  
                     <%} else {%>
-                        <td style="background-color: green;">Complété</td>  
+                        <td class="Espace_table" style="background-color: lightgreen;color: black;"><strong>Complété</strong></td>  
                     <%}%>
-                    <td><% if(requete.Recto == true){%>Oui<% }else{%>Non<%}%></td>
-                    <td><% if(requete.Agrafe == true){%>Oui<% }else{%>Non<%}%></td>
+                    <td class="Espace_table"><em><% if(requete.Recto == true){%>Oui<% }else{%>Non<%}%></em></td>
+                    <td class="Espace_table"><em><% if(requete.Agrafe == true){%>Oui<% }else{%>Non<%}%></em></td>
                 </tr>
             <% } %>
         </tbody>

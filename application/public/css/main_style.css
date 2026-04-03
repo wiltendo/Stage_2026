@@ -5,6 +5,21 @@ html, body {
   margin: 0;
 }
 
+.tableau_bord{
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.Espace_table {
+    height: 40px;
+}
+
+th{
+    font-size:larger;
+}
+
 .page {
   min-height: 100vh;
   display: flex;
@@ -13,6 +28,10 @@ html, body {
 
 .Erreur{
     color: red;
+}
+
+.Reussi{
+    color: green;
 }
 
 main {

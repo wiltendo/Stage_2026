@@ -8,16 +8,34 @@
 <main>
     <h1>Demande Ouvert</h1>
     <br>
+
+    <% if(typeof(Erreur)!='undefined') {%>
+        <h4 class="Erreur"><%=Erreur %></h4>
+        <br>
+        <br>
+    <%}%>
+
+    <% if(typeof(ReussiT)!='undefined') {%>
+        <h3 class="Reussi"><%=ReussiT %></h3>
+        <br>
+        <br>
+    <%}%>
+
     <% console.log(listeRequeteOuvert);
     if (listeRequeteOuvert.length == 0) {%>
         <p>Il n'y a pas de demande</p>
     <% } else { %>
-        <div style="display: flex">
+        <div style="display: flex;flex-wrap: wrap">
         <% for (let requete of listeRequeteOuvert) { %>
                 <div style="margin-right: 50px;">
                     <form action="/Reprographe/TicketTraitement" method="POST">
                     <button type="submit">
                     <table>
+                        <thead style="display: none;">
+                            <tr>
+                                <th>Information Ticket</th>
+                            </tr>
+                        </thead>
                         <tbody>
                             <tr><td><%=requete.date_creation.toLocaleString() %></td></tr>
                             <tr><td>Limite : <%=requete.date_retour.toLocaleDateString() %></td></tr>
@@ -42,14 +60,32 @@
     <br><br>
     <h1>Demande en Traitement</h1>
     <br>
+
+    <% if(typeof(ReussiF)!='undefined') {%>
+        <h3 class="Reussi"><%=ReussiF %></h3>
+        <br>
+        <br>
+    <%}%>
+
+    <% if(typeof(ReussiFT)!='undefined') {%>
+        <h3 class="Reussi"><%=ReussiFT %></h3>
+        <br>
+        <br>
+    <%}%>
+
     <% console.log(listeRequeteTraitement);
     if (listeRequeteTraitement.length == 0) {%>
         <p>Il n'y a pas de demande</p>
     <% } else { %>
-        <div style="display: flex;">
+        <div style="display: flex;flex-wrap: wrap">
         <% for (let requete of listeRequeteTraitement) { %>
                 <div style="margin-right: 50px;">
                     <table style="border: solid black 1px;">
+                        <thead style="display: none;">
+                            <tr>
+                                <th>Information Ticket</th>
+                            </tr>
+                        </thead>
                         <tbody>
                             <tr><td><%=requete.date_creation.toLocaleString() %></td></tr>
                             <tr><td><strong>Limite : </strong> <%=requete.date_retour.toLocaleDateString() %></td></tr>
