@@ -1,6 +1,26 @@
 <%- include('fragments/head.ejs')%>
 <link rel="stylesheet" href="/css/inscription_connexion.css">
-
+<style>
+    input[type="radio"] {
+    display: none;
+    }
+    input[type="radio"]:checked + .radio-label {
+        border-color: var(--col-dark-gray);
+        background-color: var(--col-pink);
+    }
+    .radio-label {
+        display: inline-block;
+        line-height: 30px;
+        text-align: center;
+        font-size: large;
+        margin-bottom: 5px;
+        margin-right: 10px;
+        padding: 5px 20px;
+        border: 2px solid #ddd;
+        border-radius: 15px;
+        cursor: pointer;
+    }
+</style>
 </head>
 <body>
     <div class="page">
