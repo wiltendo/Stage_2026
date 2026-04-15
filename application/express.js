@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const session = require("express-session");
 const mongoose = require("mongoose");
+const csrf = require("csurf");
+
 
 const error404 = require('./controllers/error404');
 const AccueilRoutes = require('./routes/Accueil');
@@ -33,6 +35,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname,'public')));
 app.use(session({secret: 'secret',resave: false, saveUninitialized: false}));
 
+const csrfProtected = csrf({});
+console.log(csrfProtected);
+app.use(csrfProtected);
+
 const fileUpload = require('express-fileupload');
 app.use(fileUpload());
 
@@ -45,6 +51,8 @@ app.use(async function(req, res, next) {
     res.locals.Département =  dep[0].Valeur;
     res.locals.Type_Document = dep[1].Valeur;
     console.log(req.session.role)
+
+    res.locals.csrfToken = req.csrfToken();
     next();
 });
 

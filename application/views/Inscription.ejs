@@ -104,6 +104,8 @@
                     <input class="button" type="submit" value="S'inscrire" id="submit">
                     <a class="button" style="margin-left:10px ;" href="/Auth">Se connecter</a>
                 </div>
+
+                <input type="hidden" value="<%= csrfToken%>" name="_csrf">
             </form>
        </div>
    </div>

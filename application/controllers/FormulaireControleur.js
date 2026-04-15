@@ -43,7 +43,7 @@ exports.postFormulaire = async (req,res,next) => {
                         if (err) {
                             return res.redirect('/Formulaire?Erreur="Probleme Upload Fichier"');
                         }
-                        return res.redirect('/Tableau_bord');
+                        return res.redirect('/Tableau_bord?Reussi=Le ticket a été créé');
                     });
                 }else{
                     res.redirect('/Formulaire?Erreur="Date Inconnu"')
@@ -61,6 +61,7 @@ exports.postFormulaire = async (req,res,next) => {
 
 exports.getTableau_Bord = async (req,res,next) => {
     console.log('middleware Formulaire', req.method);
+    const reussi = req.query.Reussi;
     
-    res.render('Tableau_Bord',{pageTitle:"Tableau de Bord",listeRequeteUser: await Requete.find({User:req.session.user})});
+    res.render('Tableau_Bord',{pageTitle:"Tableau de Bord",Reussi:reussi,listeRequeteUser: await Requete.find({User:req.session.user})});
 }

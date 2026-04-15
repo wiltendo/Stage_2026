@@ -51,6 +51,7 @@
                     </table>
                     </button>
                     <input type="hidden" name="idTicket" value=<%= requete._id %> />
+                    <input type="hidden" value="<%= csrfToken%>" name="_csrf">
                     </form>
                 </div>
         <% } %>
@@ -99,11 +100,13 @@
                                 <form action="/Reprographe/File" method="POST">
                                     <td><button>Télécharger</button></td>
                                     <input type="hidden" name="idTicket" value=<%= requete._id %> />
+                                    <input type="hidden" value="<%= csrfToken%>" name="_csrf">
                                 </form>
                                     
                                 <form action="/Reprographe/TicketFermer" method="POST">
                                     <td><button>Fermer Ticket</button></td>
                                     <input type="hidden" name="idTicket" value=<%= requete._id %> />
+                                    <input type="hidden" value="<%= csrfToken%>" name="_csrf">
                                 </form>
                             </tr>
                         </tbody>

@@ -1,5 +1,6 @@
 <%- include('fragments/head.ejs')%>
 <link rel="stylesheet" href="/css/inscription_connexion.css">
+
 <style>
     input[type="radio"] {
     display: none;
@@ -94,10 +95,10 @@
                <div class="info-bulle">
                     <fieldset style="padding: 10px;"> <legend>Recto/Verso</legend>
                         <input type="radio" name="recto_verso" value="true" id="recto_verso1" checked />
-                        <label for="recto_verso1">Recto/Verso</label>
+                        <label for="recto_verso1" class="radio-label">Recto/Verso</label>
 
                         <input type="radio" name="recto_verso" value="false" id="recto_verso2" />
-                        <label for="recto_verso2">Recto</label>
+                        <label for="recto_verso2" class="radio-label">Recto</label>
                     </fieldset>
                </div>
 
@@ -106,16 +107,17 @@
                <div class="info-bulle">
                     <fieldset style="padding: 10px;"> <legend>Agrafe</legend>
                         <input type="radio" name="Agrafe" value="true" id="Agrafe1" />
-                        <label for="Agrafe1">Oui</label>
+                        <label for="Agrafe1" class="radio-label">Oui</label>
 
                         <input type="radio" name="Agrafe" value="false" id="Agrafe2" checked  />
-                        <label for="Agrafe2">Non</label>
+                        <label for="Agrafe2" class="radio-label">Non</label>
                     </fieldset>
                </div>
                
                <br>
                 
                 <input class="button" type="submit" value="Valider" id="submit">
+                <input type="hidden" value="<%= csrfToken%>" name="_csrf">
             </form>
        </div>
    </div>

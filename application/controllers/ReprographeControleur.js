@@ -2,8 +2,12 @@ const Requete = require('../model/dataRequete');
 
 exports.getReprographe = async (req,res,next) => {
     console.log('middleware Reprographe', req.method);
+    const erreur = req.query.Erreur;
+    const reussiT = req.query.ReussiT;
+    const reussiF = req.query.ReussiF;
+    const reussiFT = req.query.ReussiFT;
 
-    res.render('Reprographe',{pageTitle:"Reprographe",listeRequeteOuvert: await Requete.find({Status:"Ouvert"}),listeRequeteTraitement:await Requete.find({Status:"En cours de traitement",Reprographe:req.session.user})});
+    res.render('Reprographe',{pageTitle:"Reprographe",ReussiT:reussiT,ReussiF:reussiF,ReussiFT:reussiFT,Erreur:erreur,listeRequeteOuvert: await Requete.find({Status:"Ouvert"}),listeRequeteTraitement:await Requete.find({Status:"En cours de traitement",Reprographe:req.session.user})});
 }
 
 exports.postTicketTraitement = async (req,res,next) => {
@@ -13,7 +17,7 @@ exports.postTicketTraitement = async (req,res,next) => {
         { _id: req.body.idTicket,Status:"Ouvert" },
         { $set: { Status: "En cours de traitement",Reprographe:req.session.user } }
     )
-    res.redirect('/Reprographe');
+    res.redirect('/Reprographe?ReussiT=Le ticket a été pris en charge');
 }
 
 exports.postTicketFermer = async (req,res,next) => {
@@ -23,7 +27,7 @@ exports.postTicketFermer = async (req,res,next) => {
         { _id: req.body.idTicket,Status:"En cours de traitement" },
         { $set: { Status: "Complété"} }
     )
-    res.redirect('/Reprographe');
+    res.redirect('/Reprographe?ReussiF=Le ticket a été fermé');
 }
 
 exports.postTéléchargerFichier = async (req,res,next) => {
@@ -35,8 +39,7 @@ exports.postTéléchargerFichier = async (req,res,next) => {
     res.download(path, name, (err) => {
         if (err) {
             console.error(err);
-            return res.redirect('/Reprographe?Erreur="Fichier non trouvé"');
+            return res.redirect('/Reprographe?Erreur=Fichier non trouvé');
         }
-        return res.redirect('/Reprographe');
     });
 }

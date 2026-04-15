@@ -14,10 +14,6 @@
     min-width: 600px;
     width: fit-content;
     max-width: 100%;
-    /*background: var(--col-white);
-    border-radius: 10px;
-    box-shadow: 0 8px 24px rgba(0,32,63,.45),
-    0 8px 8px rgba(0,32,63,.45);*/
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -55,13 +51,10 @@
     box-shadow: 0 2px 6px rgba(0,32,63,.45),
     0 2px 2px rgba(0,32,63,.45);
 }
+
 input::placeholder {
     color: var(--col-dark-gray);
     font-weight: bold;
-}
-
-button.ghost {
-    background-color: transparent;
 }
 
 .button{
