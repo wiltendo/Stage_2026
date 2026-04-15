@@ -8,6 +8,14 @@
 <%- include('fragments/navigation.ejs')%>
 
 <main>
+<% if(typeof(ReussiRep)!='undefined') {%>
+    <div style="text-align: center;">
+        <h3 class="Reussi"><%=ReussiRep %></h3>
+    </div>
+    <br>
+    <br>
+<%}%>
+
 <div class="container" id="container">
    <div class="form_container">
        <div class="form_connexion">
@@ -104,7 +112,15 @@
    </div>
 </div>    
 
-<div class="container" id="container">
+<% if(typeof(ReussiDep)!='undefined') {%>
+    <div style="text-align: center;">
+        <h3 class="Reussi"><%=ReussiDep %></h3>
+    </div>
+    <br>
+    <br>
+<%}%>
+
+<div class="container" id="departement">
     <div class="form_container">
         <h1>Département</h1>
         <div style="display:flex;align-items: flex-start;">

@@ -35,12 +35,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname,'public')));
 app.use(session({secret: 'secret',resave: false, saveUninitialized: false}));
 
+const fileUpload = require('express-fileupload');
+app.use(fileUpload());
+
 const csrfProtected = csrf({});
 console.log(csrfProtected);
 app.use(csrfProtected);
-
-const fileUpload = require('express-fileupload');
-app.use(fileUpload());
 
 const Annexe = require('./model/dataAnnexe');
 
@@ -53,6 +53,7 @@ app.use(async function(req, res, next) {
     console.log(req.session.role)
 
     res.locals.csrfToken = req.csrfToken();
+    console.log(req.csrfToken())
     next();
 });
 

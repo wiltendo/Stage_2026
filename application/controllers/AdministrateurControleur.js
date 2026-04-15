@@ -7,8 +7,10 @@ const bcrypt = require('bcrypt');
 exports.getAdministrateur = (req,res,next) => {
     console.log('middleware Administrateur', req.method);
     const erreurR = req.query.ErreurR;
+    const reussiDep = req.query.ReussiDep;
+    const reussiRep = req.query.ReussiRep;
         
-    res.render('Administrateur',{pageTitle:"Administrateur",ErreurR:erreurR}); 
+    res.render('Administrateur',{pageTitle:"Administrateur",ErreurR:erreurR,ReussiDep:reussiDep,ReussiRep:reussiRep}); 
 }
 
 exports.postAddReprographe = async (req,res,next) => {
@@ -22,7 +24,7 @@ exports.postAddReprographe = async (req,res,next) => {
             .then((result) => { console.log("ok")})
             .catch((err) => {res.redirect('/Administrateur?ErreurR='+err);});
         
-        res.redirect('/Administrateur');
+        res.redirect('/Administrateur?ReussiRep="Compte Créer"');
     } else {
         res.redirect('/Administrateur?ErreurR="Département Inconnu"');
     }
@@ -36,7 +38,7 @@ exports.postAddDep = async (req,res,next) =>{
         { $push: { Valeur: req.body.NewDep } }
     );
 
-    res.redirect('/Administrateur');
+    res.redirect('/Administrateur?ReussiDep="Departement Ajouter"#departement');
 }
 
 exports.postModDep = async (req,res,next) =>{
@@ -47,7 +49,7 @@ exports.postModDep = async (req,res,next) =>{
         { $set: { "Valeur.$": req.body.NewModDep } }
     );
 
-    res.redirect('/Administrateur');
+    res.redirect('/Administrateur?ReussiDep="Departement Modifier"#departement');
 }
 
 
@@ -59,6 +61,6 @@ exports.postDelDep = async (req,res,next) =>{
         { $pull: { Valeur: req.body.AnDelDep } }
     );
 
-    res.redirect('/Administrateur');
+    res.redirect('/Administrateur?ReussiDep="Departement Effacer"#departement');
 }
 
