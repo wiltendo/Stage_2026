@@ -48,12 +48,13 @@ app.use(async function(req, res, next) {
     res.locals.log = req.session.isLog;
     res.locals.role = req.session.role;
     const dep = await Annexe.find({},{Valeur:1})
-    res.locals.Département =  dep[0].Valeur;
-    res.locals.Type_Document = dep[1].Valeur;
-    console.log(req.session.role)
-
+    if (dep[0]!= undefined){
+        res.locals.Département =  dep[0].Valeur;
+    }
+    if (dep[1]!= undefined){
+        res.locals.Type_Document = dep[1].Valeur;
+    }
     res.locals.csrfToken = req.csrfToken();
-    console.log(req.csrfToken())
     next();
 });
 
