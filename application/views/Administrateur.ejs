@@ -212,6 +212,108 @@
     </div>
 </div>
 
+
+<% if(typeof(ReussiType_file)!='undefined') {%>
+    <div style="text-align: center;">
+        <h3 class="Reussi"><%=ReussiType_file %></h3>
+    </div>
+    <br>
+    <br>
+<%}%>
+
+
+<div class="container" id="type_file">
+    <div class="form_container">
+        <h1>Fichier Authauriser</h1>
+        <div style="display:flex;align-items: flex-start;">
+            <!-- Partie liste Départment-->
+            <table style="margin-right: 50px;">
+                <thead style="background-color: orange;">
+                    <tr>
+                        <th style="padding: 10px;">Liste des fichier autoriser</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let requete of Type_Document) {  %>
+                        <tr><td style="border: solid black 1px;background-color: lightgray;color: black;padding: 5px;"><%=requete%></td></tr>
+                    <% } %>
+                </tbody>
+            </table>
+
+            <!-- Partie liste Boutton-->
+            <div style="display: grid;gap: 20px;"> 
+
+                <button style="background-color: lightsalmon;padding: 10px;" 
+                    onclick="document.getElementById('AddType_file').style.display = 'block';
+                        document.getElementById('ModType_file').style.display = 'none';
+                            document.getElementById('DelType_file').style.display = 'none'">
+                    <strong>Ajouter</strong>
+                </button>
+
+                <button style="background-color: lightgrey;padding: 10px;" 
+                    onclick="document.getElementById('AddType_file').style.display = 'none';
+                        document.getElementById('ModType_file').style.display = 'block';
+                        document.getElementById('DelType_file').style.display = 'none'">
+                    <strong>Modifier</strong>
+                </button>
+
+                <button style="background-color: lightcoral;padding: 10px;" 
+                    onclick="document.getElementById('AddType_file').style.display = 'none';
+                        document.getElementById('ModType_file').style.display = 'none';
+                        document.getElementById('DelType_file').style.display = 'block'">
+                    <strong>Enlever</strong>
+                </button>
+
+            </div>
+        </div>
+        <br>
+        <br>
+        <form action="/Administrateur/AddType_file" method="post" style="display: none;" id="AddType_file">
+            <div class="info-bulle">
+                <label for="NewType_file"><strong>Type de fichier à ajouter</strong>
+                    <input class="inputForm" type="text" name="NewType_file" id="NewType_file" required>
+                </label>
+            </div>
+            <br>
+            <input class="button" type="submit" value="Ajouter" id="submit">
+            <input type="hidden" value="<%= csrfToken%>" name="_csrf">
+        </form>
+
+        <form action="/Administrateur/ModType_file" method="post" style="display: none;" id="ModType_file">
+            <div class="info-bulle">
+                <label for="AnModType_file"><strong>Type de fichier à Modifier</strong></label>
+                <select class="inputForm" name="AnModType_file" id="AnModType_file">
+                    <% for (let requete of Type_Document) { %>
+                        <option value=<%=requete%>><%=requete%></option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="info-bulle">
+                <label for="NewModType_file"><strong>Nom du nouveau type de fichier</strong>
+                    <input class="inputForm" type="text" name="NewModType_file" id="NewModType_file" required>
+                </label>
+            </div>
+            <br>
+            <input class="button" type="submit" value="Modifier" id="submit">
+            <input type="hidden" value="<%= csrfToken%>" name="_csrf">
+        </form>
+
+        <form action="/Administrateur/DelType_file" method="post" style="display: none;" id="DelType_file">
+            <div class="info-bulle">
+                <label for="AnDelType_file"><strong>Département à Supprimer</strong></label>
+                <select class="inputForm" name="AnDelType_file" id="AnDelType_file">
+                    <% for (let requete of Type_Document) { if(requete!="Reprographe"){ %>
+                        <option value=<%=requete%>><%=requete%></option>
+                    <% }} %>
+                </select>
+            </div>
+            <br>
+            <input class="button" type="submit" value="Effacer" id="submit">
+            <input type="hidden" value="<%= csrfToken%>" name="_csrf">
+        </form>
+    </div>
+</div>
+
 <script src="/valid_password.js"></script>
 </main>
 <%- include('fragments/foot.ejs')%>

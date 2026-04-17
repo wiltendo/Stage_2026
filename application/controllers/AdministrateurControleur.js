@@ -9,8 +9,9 @@ exports.getAdministrateur = (req,res,next) => {
     const erreurR = req.query.ErreurR;
     const reussiDep = req.query.ReussiDep;
     const reussiRep = req.query.ReussiRep;
+    const reussiType_file = req.query.ReussiType_file;
         
-    res.render('Administrateur',{pageTitle:"Administrateur",ErreurR:erreurR,ReussiDep:reussiDep,ReussiRep:reussiRep}); 
+    res.render('Administrateur',{pageTitle:"Administrateur",ErreurR:erreurR,ReussiDep:reussiDep,ReussiRep:reussiRep,ReussiType_file:reussiType_file}); 
 }
 
 exports.postAddReprographe = async (req,res,next) => {
@@ -64,3 +65,36 @@ exports.postDelDep = async (req,res,next) =>{
     res.redirect('/Administrateur?ReussiDep="Departement Effacer"#departement');
 }
 
+exports.postAddType_file = async (req,res,next) =>{
+    console.log('middleware Administrateur AddType_file', req.method);
+
+    await Annexe.updateOne(
+        { Nom_Liste: "Type_Doc" },
+        { $push: { Valeur: req.body.NewType_file } }
+    );
+
+    res.redirect('/Administrateur?ReussiType_file="Type Fichier Ajouter"#type_file');
+}
+
+exports.postModType_file = async (req,res,next) =>{
+    console.log('middleware Administrateur ModDep', req.method);
+
+    await Annexe.updateOne(
+        { Nom_Liste: "Type_Doc",Valeur:req.body.AnModType_file},
+        { $set: { "Valeur.$": req.body.NewModType_file } }
+    );
+
+    res.redirect('/Administrateur?ReussiType_file="Type Fichier Modifier"#type_file');
+}
+
+
+exports.postDelType_file = async (req,res,next) =>{
+    console.log('middleware Administrateur DelDep', req.method);
+
+    await Annexe.updateOne(
+        { Nom_Liste: "Type_Doc" },
+        { $pull: { Valeur: req.body.AnDelType_file } }
+    );
+
+    res.redirect('/Administrateur?ReussiType_file="Type Fichier Effacer"#type_file');
+}
