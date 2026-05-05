@@ -5,7 +5,7 @@
     <div class="page">
 <%- include('fragments/navigation.ejs')%>
 
-<main>
+<main style="display: grid;flex: 1;">
     <h1>Demande Ouvert</h1>
     <br>
 
@@ -45,7 +45,7 @@
                             </tr>
                             <tr><td colspan="2"><strong>Nombre Exemplaire : </strong><%=requete.Nb_exemplaire %></td></tr>
                             <tr><td colspan="2" style="padding-bottom: 15px;"><strong>Nombre Page : </strong><%=requete.Nb_page %></td></tr>
-                            <tr><td><strong>Recto : </strong><%= requete.Recto ? "✔️" : "❌" %></td>
+                            <tr><td><strong>R/V : </strong><%= requete.Recto ? "✔️" : "❌" %></td>
                             <td><strong>Agrafe : </strong><%= requete.Agrafe ? "✔️" : "❌" %></td></tr>
                         </tbody>
                     </table>

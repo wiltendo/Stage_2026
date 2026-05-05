@@ -5,7 +5,7 @@
     <div class="page">
 <%- include('fragments/navigation.ejs')%>
 
-<main>
+<main style="display: grid;flex: 1;">
     <h1 id="title" >Tableau de Bord</h1>
 
     <% if(typeof(Reussi)!='undefined') {%>
@@ -43,10 +43,10 @@
                     <%} else if (requete.Status == "En cours de traitement") {%>
                         <td class="Espace_table" style="background-color: lightsalmon;color: black;"><strong>En cours de traitement</strong></td>  
                     <%} else {%>
-                        <td class="Espace_table" style="background-color: lightgreen;color: black;"><strong>Complété</strong></td>  
+                        <td class="Espace_table" style="background-color: lightgreen;color: black;"><strong>Disponible</strong></td>  
                     <%}%>
-                    <td class="Espace_table"><em><% if(requete.Recto == true){%>Oui<% }else{%>Non<%}%></em></td>
-                    <td class="Espace_table"><em><% if(requete.Agrafe == true){%>Oui<% }else{%>Non<%}%></em></td>
+                    <td class="Espace_table"><em><%= requete.Recto ? "✔️" : "❌" %></em></td>
+                    <td class="Espace_table"><em><%= requete.Agrafe ? "✔️" : "❌" %></em></td>
                 </tr>
             <% } %>
         </tbody>

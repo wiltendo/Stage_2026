@@ -7,7 +7,7 @@
     <div class="page">
 <%- include('fragments/navigation.ejs')%>
 
-<main>
+<main class="main_center">
 
 
 
@@ -101,8 +101,8 @@
                 <br>
 
                 <div style="display: flex;">
-                    <input class="button" type="submit" value="S'inscrire" id="submit">
-                    <a class="button" style="margin-left:10px ;" href="/Auth">Se connecter</a>
+                    <input class="button" type="submit" value="S'inscrire" id="submit" style="height: 70px;">
+                    <a class="button" style="margin-left:10px;height: 70px;display: flex;align-items: center;" href="/Auth" >Se connecter</a>
                 </div>
 
                 <input type="hidden" value="<%= csrfToken%>" name="_csrf">

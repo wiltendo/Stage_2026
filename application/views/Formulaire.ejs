@@ -27,7 +27,7 @@
     <div class="page">
 <%- include('fragments/navigation.ejs')%>
 
-<main>
+<main class="main_center">
 <div class="container" id="container">
    <div class="form_container">
        <div class="form_connexion">
@@ -59,13 +59,26 @@
                 </div>
 
                 <br>
+                <br>
 
                 <div class="info-bulle">
-                    <label for="sampleFile"><strong>Fichier :</strong> <br>
-                        <input type="file" name="sampleFile" id="sampleFile">
+                    <label for="sampleFile" class="inputForm"><strong>Fichier à Upload</strong>
+                        <span id="fileName">📄 Aucun fichier</span>
                     </label>
+                    <input type="file" name="sampleFile" id="sampleFile" style="display: none;">
+                    <script>
+                        const input = document.getElementById("sampleFile");
+                        const label = document.getElementById("fileName");
+
+                        input.addEventListener("change", () => {
+                        if (input.files.length > 0) {
+                            label.textContent = "📄 " + input.files[0].name;
+                        }
+                        });
+                    </script>
                 </div>
 
+                <br>
                 <br>
 
                 <div class="info-bulle">

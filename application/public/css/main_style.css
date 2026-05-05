@@ -62,7 +62,7 @@ th{
     color: green;
 }
 
-main {
+.main_center {
   display: grid;
   flex: 1;
   justify-content: center;
