@@ -5,6 +5,34 @@ html, body {
   margin: 0;
 }
 
+.Ticket{
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+    width: 250px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+
+.Ticket_Ouvert{
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.Ticket_Prépa{
+    background-color: lightgray;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.Ticket_Prépa:hover{
+    background-color: lightsalmon;
+}
+
 .tableau_bord{
     text-align: center;
     width: 100%;

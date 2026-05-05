@@ -27,26 +27,26 @@
     <% } else { %>
         <div style="display: flex;flex-wrap: wrap">
         <% for (let requete of listeRequeteOuvert) { %>
-                <div style="margin-right: 50px;">
+                <div style="margin-right: 50px;border-left: 5px solid #28a745;" class="Ticket">
                     <form action="/Reprographe/TicketTraitement" method="POST">
-                    <button type="submit">
+                    <button type="submit" class="Ticket_Ouvert">
                     <table>
-                        <thead style="display: none;">
+                        <thead>
                             <tr>
-                                <th>Information Ticket</th>
+                                <th colspan="2" style="padding-bottom: 15px;font-size: 20px;" >Information Ticket</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr><td><%=requete.date_creation.toLocaleString() %></td></tr>
-                            <tr><td>Limite : <%=requete.date_retour.toLocaleDateString() %></td></tr>
-                            <tr><td><strong>Utilisateur : </strong> <%=requete.User_Name %></td></tr>
+                        <tbody style="text-align: left;font-size: 15px;">
+                            <tr><td colspan="2"><%=requete.date_creation.toLocaleString() %></td></tr>
+                            <tr><td colspan="2" style="padding-bottom: 15px;"><em><strong>Limite : </strong><%=requete.date_retour.toLocaleDateString() %></em></td></tr>
+                            <tr><td colspan="2">👤 <%=requete.User_Name %></td></tr>
                             <tr>
-                                <td><strong>Nom Document : </strong><%=requete.Nom_Doc %>.<%=requete.Type_Doc %></td>
+                                <td colspan="2" style="padding-bottom: 15px;"><strong>Nom Document : </strong><em><%=requete.Nom_Doc %>.<%=requete.Type_Doc %></em></td>
                             </tr>
-                            <tr><td><strong>Nombre Exemplaire : </strong><%=requete.Nb_exemplaire %></td></tr>
-                            <tr><td><strong>Nombre page : </strong><%=requete.Nb_page %></td></tr>
-                            <tr><td><strong>Recto : </strong><%=requete.Recto %></td></tr>
-                            <tr><td><strong>Agrafe : </strong><%=requete.Agrafe %></td></tr>
+                            <tr><td colspan="2"><strong>Nombre Exemplaire : </strong><%=requete.Nb_exemplaire %></td></tr>
+                            <tr><td colspan="2" style="padding-bottom: 15px;"><strong>Nombre Page : </strong><%=requete.Nb_page %></td></tr>
+                            <tr><td><strong>Recto : </strong><%= requete.Recto ? "✔️" : "❌" %></td>
+                            <td><strong>Agrafe : </strong><%= requete.Agrafe ? "✔️" : "❌" %></td></tr>
                         </tbody>
                     </table>
                     </button>
@@ -80,31 +80,33 @@
     <% } else { %>
         <div style="display: flex;flex-wrap: wrap">
         <% for (let requete of listeRequeteTraitement) { %>
-                <div style="margin-right: 50px;">
-                    <table style="border: solid black 1px;">
-                        <thead style="display: none;">
+                <div style="margin-right: 50px;border-left: 5px solid #ffc107;width: 265px;" class="Ticket">
+                    <table style="background-color: buttonface;color: black;">
+                        <thead>
                             <tr>
-                                <th>Information Ticket</th>
+                                <th colspan="2" style="padding-bottom: 15px;font-size: 20px;" >Information Ticket</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td><%=requete.date_creation.toLocaleString() %></td></tr>
-                            <tr><td><strong>Limite : </strong> <%=requete.date_retour.toLocaleDateString() %></td></tr>
-                            <tr><td><strong>Utilisateur : </strong> <%=requete.User_Name %></td></tr>
-                            <tr><td><strong>Nom Document : </strong><%=requete.Nom_Doc %>.<%=requete.Type_Doc %></td></tr>
-                            <tr><td><strong>Nombre Exemplaire : </strong><%=requete.Nb_exemplaire %></td></tr>
-                            <tr><td><strong>Nombre page : </strong><%=requete.Nb_page %></td></tr>
-                            <tr><td><strong>Recto : </strong><%=requete.Recto %></td></tr>
-                            <tr><td><strong>Agrafe : </strong><%=requete.Agrafe %></td></tr>    
+                            <tr><td colspan="2"><%=requete.date_creation.toLocaleString() %></td></tr>
+                            <tr><td colspan="2" style="padding-bottom: 15px;"><em><strong>Limite : </strong> <%=requete.date_retour.toLocaleDateString() %></em></td></tr>
+                            <tr><td colspan="2"><strong>Utilisateur : </strong> <%=requete.User_Name %></td></tr>
+                            <tr><td colspan="2" style="padding-bottom: 15px;"><strong>Nom Document : </strong><em><%=requete.Nom_Doc %>.<%=requete.Type_Doc %></em></td></tr>
+                            <tr><td colspan="2"><strong>Nombre Exemplaire : </strong><%=requete.Nb_exemplaire %></td></tr>
+                            <tr><td colspan="2" style="padding-bottom: 15px;"><strong>Nombre page : </strong><%=requete.Nb_page %></td></tr>
+                            <tr>
+                                <td style="padding-bottom: 15px;"><strong>Recto : </strong><%= requete.Recto ? "✔️" : "❌" %></td>
+                                <td style="padding-bottom: 15px;"><strong>Agrafe : </strong><%= requete.Agrafe ? "✔️" : "❌" %></td>
+                            </tr>    
                             <tr>
                                 <form action="/Reprographe/File" method="POST">
-                                    <td><button>Télécharger</button></td>
+                                    <td><button class="Ticket_Prépa"><strong>Télécharger</strong></button></td>
                                     <input type="hidden" name="idTicket" value=<%= requete._id %> />
                                     <input type="hidden" value="<%= csrfToken%>" name="_csrf">
                                 </form>
                                     
                                 <form action="/Reprographe/TicketFermer" method="POST">
-                                    <td><button>Fermer Ticket</button></td>
+                                    <td><button class="Ticket_Prépa"> <strong>Fermer Ticket</strong></button></td>
                                     <input type="hidden" name="idTicket" value=<%= requete._id %> />
                                     <input type="hidden" value="<%= csrfToken%>" name="_csrf">
                                 </form>
