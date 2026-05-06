@@ -9,11 +9,13 @@ exports.getAdministrateur = (req,res,next) => {
     console.log('middleware Administrateur', req.method);
 
     const erreurR = req.query.ErreurR;
+    const erreurDep = req.query.ErreurDep;
+    const erreurType_file = req.query.ErreurType_file;
     const reussiDep = req.query.ReussiDep;
     const reussiRep = req.query.ReussiRep;
     const reussiType_file = req.query.ReussiType_file;
         
-    res.render('Administrateur',{pageTitle:"Administrateur",ErreurR:erreurR,ReussiDep:reussiDep,ReussiRep:reussiRep,ReussiType_file:reussiType_file}); 
+    res.render('Administrateur',{pageTitle:"Administrateur",ErreurR:erreurR,ErreurDep:erreurDep,ErreurType_file:erreurType_file,ReussiDep:reussiDep,ReussiRep:reussiRep,ReussiType_file:reussiType_file}); 
 }
 
 exports.postAddReprographe = async (req,res,next) => {
