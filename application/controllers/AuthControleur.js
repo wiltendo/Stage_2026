@@ -6,6 +6,8 @@ apisecret = "5783ad7b6a07d382642f8e0eb42d52ae"
 const mailjet = require ('node-mailjet')
     .apiConnect(apikey,apisecret)
 
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+
 
 exports.postAuth = async (req,res,next) => {
     res.locals.log = req.session.isLog;
@@ -13,27 +15,43 @@ exports.postAuth = async (req,res,next) => {
 
     const mdp = String(req.body.password)
     const mail = String(req.body.Mail);
+      
+    if (!emailRegex.test(req.body.Mail)) { 
+        return res.redirect('/Auth?Erreur=Email invalide'); 
+    }
+
     const user = await User.findOne({Mail: mail},{Mdp:1,Role:1,_id:1});
     if (user){
         if (await bcrypt.compare(mdp,user.Mdp)){
-            req.session.isLog=true;
             req.session.role = user.Role;
             req.session.user = user._id;
-                
+            
+            req.session.isLog= true;
             return res.redirect('/');
         }else{
-            return res.redirect('/Auth?Erreur="Mot de passe Incorrect"')
+            return res.redirect('/Auth?Erreur=Mot de passe Incorrect')
         }
     }else{
-        return res.redirect('/Auth?Erreur="Mail Incorrect"')
+        return res.redirect('/Auth?Erreur=Mail Incorrect')
     }
 }
 
 exports.postInscription= async (req,res,next) => {
     console.log('middleware Inscription', req.method);
+    
+    if (!emailRegex.test(req.body.Mail)) { 
+        return res.redirect('/Inscription?Erreur=Email invalide'); 
+    }
 
-    if(res.locals.Département.includes(req.body.Département)){
-        const request = mailjet
+    const existingUser = await User.findOne({ Mail: req.body.Mail });
+    if (existingUser) {
+        return res.redirect('/Inscription?Erreur=Email déjà utilisé');
+    }
+
+    const dep = String(req.body.Département)
+    if(res.locals.Département.includes(dep)){
+        try {
+            await mailjet
             .post("send", {'version': 'v3.1'})
             .request({
                 "Messages":[
@@ -53,26 +71,31 @@ exports.postInscription= async (req,res,next) => {
                         }
                 ]
             })
-        request
-            .then((result) => {
-                console.log(result.body)
-            })
-            .catch((err) => {
-                console.log(err.statusCode);
-                return res.redirect('/Inscription?Erreur='+err);
-            })
-        req.session.isLog=true;
-        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+            console.log("Mail ok")
+        } catch (err) {
+            console.log(err.statusCode);
+            return res.redirect('/Inscription?Erreur='+err);
+        }
+        
+
+        const hashedPassword = await bcrypt.hash(req.body.password, 12);
         
         const user = new User({Nom: req.body.name,Prénom: req.body.Prénom, Mail:req.body.Mail ,Mdp: hashedPassword, Département : req.body.Département, Role : "Utilisateur"});
-        user.save()
-            .then((result) => { console.log("ok")})
-            .catch((err) => {return res.redirect('/Inscription?Erreur='+err)});
+        
+        let savedUser;
+        
+        try {
+            savedUser = await user.save();
+            console.log("ok");
+        } catch (err) {
+            return res.redirect('/Inscription?Erreur=' + err);
+        }
 
         req.session.role = "Utilisateur";
-        req.session.user = user._id;
+        req.session.user = savedUser._id;
+        req.session.isLog = true;
         res.redirect('/');
     }else{
-        res.redirect('/Inscription?Erreur="Département Inconnu"')
+        res.redirect('/Inscription?Erreur=Département Inconnu')
     }
 }
