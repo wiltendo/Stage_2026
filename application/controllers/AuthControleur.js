@@ -14,13 +14,13 @@ exports.postAuth = async (req,res,next) => {
     console.log('middleware Authentification', req.method);
 
     const mdp = String(req.body.password)
-    const mail = String(req.body.Mail);
+    const Mail = String(req.body.Mail).trim().replace(/[<>$]/g, "");
       
-    if (!emailRegex.test(req.body.Mail)) { 
+    if (!emailRegex.test(Mail)) { 
         return res.redirect('/Auth?Erreur=Email invalide'); 
     }
 
-    const user = await User.findOne({Mail: mail},{Mdp:1,Role:1,_id:1});
+    const user = await User.findOne({Mail: Mail},{Mdp:1,Role:1,_id:1});
     if (user){
         if (await bcrypt.compare(mdp,user.Mdp)){
             req.session.role = user.Role;
@@ -39,7 +39,9 @@ exports.postAuth = async (req,res,next) => {
 exports.postInscription= async (req,res,next) => {
     console.log('middleware Inscription', req.method);
     
-    if (!emailRegex.test(req.body.Mail)) { 
+    const Mail = String(req.body.Mail).trim().replace(/[<>$]/g, "");
+    
+    if (!emailRegex.test(Mail)) { 
         return res.redirect('/Inscription?Erreur=Email invalide'); 
     }
 

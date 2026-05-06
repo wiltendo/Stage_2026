@@ -120,6 +120,14 @@
     <br>
 <%}%>
 
+<% if(typeof(ErreurDep)!='undefined') {%>
+    <div style="text-align: center;">
+        <h3 class="Erreur"><%=ErreurDep %></h3>
+    </div>
+    <br>
+    <br>
+<%}%>
+
 <div class="container" id="departement">
     <div class="form_container">
         <h1>Département</h1>
@@ -216,6 +224,14 @@
 <% if(typeof(ReussiType_file)!='undefined') {%>
     <div style="text-align: center;">
         <h3 class="Reussi"><%=ReussiType_file %></h3>
+    </div>
+    <br>
+    <br>
+<%}%>
+
+<% if(typeof(ErreurType_file)!='undefined') {%>
+    <div style="text-align: center;">
+        <h3 class="Erreur"><%=ErreurType_file %></h3>
     </div>
     <br>
     <br>
