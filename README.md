@@ -23,3 +23,13 @@ J’utilise trois logiciels pour lancer le serveur et interagir avec l’applica
 - **Node.js**, que j’exécute depuis un terminal de commande avec la commande `node app.js`. Je l’ai installé en suivant le tutoriel disponible sur le site officiel : https://nodejs.org/en/download  
 - **MongoDB**, que j’utilise via un fichier `.exe` lançant un serveur local MongoDB. Je l’ai installé en suivant le tutoriel disponible sur le site officiel : https://www.mongodb.com/try/download/community  
 - **MongoDB Compass**, que j’utilise pour accéder à la base de données MongoDB et pour visualiser, modifier et supprimer les différentes données présentes dans la base.
+
+Liste dépendance : 
+- **bcrypt**
+- **csurf** 
+- **ejs**
+- **express**
+- **express-fileupload**
+- **express-session**
+- **mongoose**
+- **node-mailjet**
