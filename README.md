@@ -12,3 +12,13 @@ L’application est destinée à contruire un tableau de de bord pour un service
 • notification du travail terminé.
 
 • notification en cas d’erreur.
+
+
+## Installation du serveur
+
+Le développement de ce projet a été réalisé dans un environnement **Windows**.
+
+J’utilise deux logiciels pour lancer le serveur et interagir avec l’application :
+
+- **Node.js**, que j’exécute depuis un terminal de commande avec la commande `node app.js`. Je l’ai installé en suivant le tutoriel disponible sur le site officiel : https://nodejs.org/en/download  
+- **MongoDB**, que j’utilise via un fichier `.exe` lançant un serveur local MongoDB. Je l’ai installé en suivant le tutoriel disponible sur le site officiel : https://www.mongodb.com/try/download/community
