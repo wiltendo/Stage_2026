@@ -1,21 +1,4 @@
 const valider = document.getElementById('submit');
-if (document.getElementById('mdp')!=null){
-    document.getElementById('mdp').addEventListener('input', () => {valid("mdp",8,[true,true,true,true,true])});
-    document.getElementById('mdp').addEventListener("mouseover", function(event) {changeDisplay(event,"Valid_mdp")});
-    document.getElementById('mdp').addEventListener("mouseout", function(event) {changeDisplay(event,"Valid_mdp")});
-}
-
-if (document.getElementById('name')!=null){
-    document.getElementById('name').addEventListener('input', () => {valid("name",5,[true,true,true,false,false])});
-    document.getElementById('name').addEventListener("mouseover", function(event) {changeDisplay(event,"Valid_name")});
-    document.getElementById('name').addEventListener("mouseout", function(event) {changeDisplay(event,"Valid_name")});
-}
-
-if (document.getElementById('Prénom')!=null){
-    document.getElementById('Prénom').addEventListener('input', () => {valid("Prénom",3,[true,true,true,false,false])});
-    document.getElementById('Prénom').addEventListener("mouseover", function(event) {changeDisplay(event,"Valid_Prénom")});
-    document.getElementById('Prénom').addEventListener("mouseout", function(event) {changeDisplay(event,"Valid_Prénom")});
-}
 
 const Valider = {};
 

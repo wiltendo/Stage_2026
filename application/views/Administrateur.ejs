@@ -34,14 +34,6 @@
                    </label>
                </div>
 
-               <ul id="Valid_name" style="display: none;">
-                   <li id="length_name" class="invalid">doit contenir au moins 5 caractères</li>
-                   <li id="majuscule_name" class="invalid">doit contenir au moins 1 majuscule</li>
-                   <li id="minuscule_name" class="invalid">doit contenir au moins 1 minuscule</li>
-                   <li id="chiffre_name" class="valid">Ne doit pas contenir de chiffre</li>
-                   <li id="special_name" class="valid">Ne doit pas contenir de caractère spécial (%?*#!_-)</li>
-               </ul>
-
                <br>
 
                <div class="info-bulle">
@@ -50,13 +42,13 @@
                    </label>
                </div>
 
-               <ul id="Valid_Prénom" style="display: none;">
-                   <li id="length_Prénom" class="invalid">doit contenir au moins 3 caractères</li>
-                   <li id="majuscule_Prénom" class="invalid">doit contenir au moins 1 majuscule</li>
-                   <li id="minuscule_Prénom" class="invalid">doit contenir au moins 1 minuscule</li>
-                   <li id="chiffre_Prénom" class="valid">Ne doit pas contenir de chiffre</li>
-                   <li id="special_Prénom" class="valid">Ne doit pas contenir de caractère spécial (%?*#!_-)</li>
-               </ul>
+               <br>
+
+               <div class="info-bulle">
+                   <label for="Mail"><strong>Mail du Reprographe</strong>
+                       <input class="inputForm" type="email" name="Mail" id="Mail" required>
+                   </label>
+               </div>
 
                <br>
 
@@ -85,11 +77,28 @@
 
                <br>
 
-               <div class="info-bulle">
-                   <label for="Mail"><strong>Mail du Reprographe</strong>
-                       <input class="inputForm" type="email" name="Mail" id="Mail" required>
-                   </label>
+               <div class="champs-password">
+                   <div class="info-bulle">
+                       <label for='mdp'><strong>Mot de passe Verification</strong>
+                           <input id='mdp' type='password' name ='password' class='inputForm' required>
+                        </label>
+                   </div>
+
+                   <div class="password-show" onclick="showPassword(this)" onkeydown="showPassword(this)" tabindex="0">
+                       <img src="img/visible.png" alt="afficher le mot de passe">
+                   </div>
+                   <div class="password-hide" onclick="hidePassword(this)" onkeydown="hidePassword(this)" tabindex="0">
+                       <img src="img/hidden.png" alt="cacher le mot de passe">
+                   </div>
                </div>
+
+               <ul id="Valid_mdp" style="display: none;">
+                   <li id="length_mdp" class="invalid">doit contenir au moins 8 caractères</li>
+                   <li id="majuscule_mdp" class="invalid">doit contenir au moins 1 majuscule</li>
+                   <li id="minuscule_mdp" class="invalid">doit contenir au moins 1 minuscule</li>
+                   <li id="chiffre_mdp" class="invalid">doit contenir au moins 1 chiffre</li>
+                   <li id="special_mdp" class="invalid">doit contenir au moins 1 caractère spécial (%?*#!_-)</li>
+               </ul>
 
                <br>
 
@@ -331,6 +340,18 @@
 </div>
 
 <script src="/valid_password.js"></script>
+<script>
+    if (document.getElementById('mdp')!=null){
+        document.getElementById('mdp').addEventListener('input', () => {valid("mdp",8,[true,true,true,true,true])});
+        document.getElementById('mdp').addEventListener("mouseover", function(event) {changeDisplay(event,"Valid_mdp")});
+        document.getElementById('mdp').addEventListener("mouseout", function(event) {changeDisplay(event,"Valid_mdp")});
+    }
+    if (document.getElementById('mdp_verif')!=null){
+        document.getElementById('mdp_verif').addEventListener('input', () => {valid("mdp_verif",8,[true,true,true,true,true])});
+        document.getElementById('mdp_verif').addEventListener("mouseover", function(event) {changeDisplay(event,"Valid_mdp_verif")});
+        document.getElementById('mdp_verif').addEventListener("mouseout", function(event) {changeDisplay(event,"Valid_mdp_verif")});
+    }
+</script>
 </main>
 <%- include('fragments/foot.ejs')%>
 

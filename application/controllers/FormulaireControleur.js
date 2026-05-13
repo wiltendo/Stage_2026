@@ -11,10 +11,10 @@ exports.postFormulaire = async (req,res,next) => {
     const nb_page = Number(req.body.nb_page);
 
     if(!Number.isInteger(nb_exemplaire) || nb_exemplaire <= 0 || nb_exemplaire > 1000){
-        return res.redirect('/Formulaire?Erreur="Nombre exemplaire pas un nombre"')
+        return res.redirect('/Formulaire?Erreur=Nombre exemplaire est pas un nombre')
     }
     if(!Number.isInteger(nb_page) || nb_page <= 0 || nb_page > 1000){
-        return res.redirect('/Formulaire?Erreur="Nombre de page pas un nombre"')
+        return res.redirect('/Formulaire?Erreur=Nombre de page est pas un nombre')
     }
 
     const dateObj = new Date(req.body.date_retour);
