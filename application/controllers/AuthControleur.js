@@ -40,7 +40,12 @@ exports.postInscription= async (req,res,next) => {
     console.log('middleware Inscription', req.method);
     
     const Mail = String(req.body.Mail).trim().replace(/[<>$]/g, "");
-    
+    if(req.body.password != req.body.password_verif){
+        console.log(req.body.password);
+        console.log(req.body.password_verif);
+        return res.redirect('/Inscription?Erreur=Verification Mot de passe Echoué')
+    }
+
     if (!emailRegex.test(Mail)) { 
         return res.redirect('/Inscription?Erreur=Email invalide'); 
     }
