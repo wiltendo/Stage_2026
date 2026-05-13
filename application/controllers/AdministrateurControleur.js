@@ -23,10 +23,17 @@ exports.postAddReprographe = async (req,res,next) => {
     
     if(res.locals.Département.includes(req.body.Département)){
 
+        
         const name = String(req.body.name).trim().replace(/[<>$"'{};]/g, "");
         const password = String(req.body.password).trim().replace(/[<>$"'{};]/g, "");
+        const password_verif = String(req.body.password_verif).trim().replace(/[<>$"'{};]/g, "");
         const Prénom = String(req.body.Prénom).trim().replace(/[<>$"'{};]/g, "");
 
+        if(password != password_verif){
+            console.log(password);
+            console.log(password_verif);
+            return res.redirect('/Inscription?Erreur=Verification Mot de passe Echoué')
+        }
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const Mail = String(req.body.Mail).trim().replace(/[<>$"'{};]/g, "");
