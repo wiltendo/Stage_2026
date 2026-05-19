@@ -1,0 +1,148 @@
+<%- include('fragments/head.ejs')%>
+<link rel="stylesheet" href="/css/inscription_connexion.css">
+<script src="afficherMDP.js"></script>
+
+</head>
+<body>
+    <div class="page">
+<%- include('fragments/navigation.ejs')%>
+
+<main class="main_center">
+
+
+
+<div class="container" id="container">
+   <div class="form_container">
+       <h1>Profil</h1>
+       <br>
+       <p style="font-size: large;">👤 : <%=User.Nom%> <%=User.Prénom%></p>
+       <p style="font-size: large;">Mail : <%=User.Mail%></p>
+       <p style="font-size: large;">Département : <%=User.Département%></p>
+       <p style="font-size: large;">Role : <%=Role%></p>
+
+
+       <% if(typeof(Erreur)!='undefined') {%>
+            <h4 class="Erreur"><%=Erreur %></h4>
+            <br>
+            <br>
+        <%}%>
+        <% if(typeof(Reussi)!='undefined') {%>
+            <h4 class="Reussi"><%=Reussi %></h4>
+            <br>
+            <br>
+        <%}%>
+       <button class="button" onclick="document.getElementById('MDPChange').style.display = 'block'">Changement mot de passe</button>
+            
+        <form id="MDPChange" style="display: none;" action="/MdpChange" method="POST">
+
+            <h1>Changement mot de passe</h1>
+
+            <div class="champs-password">
+                <div class="info-bulle">
+                    <label for='mdpA'><strong>Mot de passe Ancien</strong>
+                        <input id='mdpA' type='password' name ='passwordA' class='inputForm' required>
+                    </label>
+                </div>
+
+                <div class="password-show" onclick="showPassword(this)" onkeydown="showPassword(this)" tabindex="0">
+                    <img src="img/visible.png" alt="afficher le mot de passe">
+                </div>
+                <div class="password-hide" onclick="hidePassword(this)" onkeydown="hidePassword(this)" tabindex="0">
+                    <img src="img/hidden.png" alt="cacher le mot de passe">
+                </div>
+            </div>
+
+            <ul id="Valid_mdpA" style="display: none;">
+                <li id="length_mdpA" class="invalid">doit contenir au moins 8 caractères</li>
+                <li id="majuscule_mdpA" class="invalid">doit contenir au moins 1 majuscule</li>
+                <li id="minuscule_mdpA" class="invalid">doit contenir au moins 1 minuscule</li>
+                <li id="chiffre_mdpA" class="invalid">doit contenir au moins 1 chiffre</li>
+                <li id="special_mdpA" class="invalid">doit contenir au moins 1 caractère spécial (%?*#!_-)</li>
+            </ul>
+
+            <br>
+            
+
+            <div class="champs-password">
+                <div class="info-bulle">
+                    <label for='mdpN'><strong>Mot de passe Nouveau</strong>
+                        <input id='mdpN' type='password' name ='passwordN' class='inputForm' required>
+                    </label>
+                </div>
+
+                <div class="password-show" onclick="showPassword(this)" onkeydown="showPassword(this)" tabindex="0">
+                    <img src="img/visible.png" alt="afficher le mot de passe">
+                </div>
+                <div class="password-hide" onclick="hidePassword(this)" onkeydown="hidePassword(this)" tabindex="0">
+                    <img src="img/hidden.png" alt="cacher le mot de passe">
+                </div>
+            </div>
+
+            <ul id="Valid_mdpN" style="display: none;">
+                <li id="length_mdpN" class="invalid">doit contenir au moins 8 caractères</li>
+                <li id="majuscule_mdpN" class="invalid">doit contenir au moins 1 majuscule</li>
+                <li id="minuscule_mdpN" class="invalid">doit contenir au moins 1 minuscule</li>
+                <li id="chiffre_mdpN" class="invalid">doit contenir au moins 1 chiffre</li>
+                <li id="special_mdpN" class="invalid">doit contenir au moins 1 caractère spécial (%?*#!_-)</li>
+            </ul>
+
+            <br>
+            
+
+            <div class="champs-password">
+                <div class="info-bulle">
+                    <label for='mdpN_verif'><strong>Mot de passe Nouveau Verification</strong>
+                        <input id='mdpN_verif' type='password' name ='passwordN_verif' class='inputForm' required>
+                    </label>
+                </div>
+
+                <div class="password-show" onclick="showPassword(this)" onkeydown="showPassword(this)" tabindex="0">
+                    <img src="img/visible.png" alt="afficher le mot de passe">
+                </div>
+                <div class="password-hide" onclick="hidePassword(this)" onkeydown="hidePassword(this)" tabindex="0">
+                    <img src="img/hidden.png" alt="cacher le mot de passe">
+                </div>
+            </div>
+
+            <ul id="Valid_mdpN_verif" style="display: none;">
+                <li id="length_mdpN_verif" class="invalid">doit contenir au moins 8 caractères</li>
+                <li id="majuscule_mdpN_verif" class="invalid">doit contenir au moins 1 majuscule</li>
+                <li id="minuscule_mdpN_verif" class="invalid">doit contenir au moins 1 minuscule</li>
+                <li id="chiffre_mdpN_verif" class="invalid">doit contenir au moins 1 chiffre</li>
+                <li id="special_mdpN_verif" class="invalid">doit contenir au moins 1 caractère spécial (%?*#!_-)</li>
+            </ul>
+
+            <br>
+
+            <input class="button" type="submit" value="Modifier le Mot de passe" id="submit" style="height: 70px;">
+
+            <input type="hidden" value="<%= csrfToken%>" name="_csrf">
+        </form>
+   </div>
+</div>
+
+<script src="/valid_password.js"></script>
+
+<script>
+    if (document.getElementById('mdpA')!=null){
+        document.getElementById('mdpA').addEventListener('input', () => {valid("mdpA",8,[true,true,true,true,true])});
+        document.getElementById('mdpA').addEventListener("mouseover", function(event) {changeDisplay(event,"Valid_mdpA")});
+        document.getElementById('mdpA').addEventListener("mouseout", function(event) {changeDisplay(event,"Valid_mdpA")});
+    }
+
+    if (document.getElementById('mdpN')!=null){
+        document.getElementById('mdpN').addEventListener('input', () => {valid("mdpN",8,[true,true,true,true,true])});
+        document.getElementById('mdpN').addEventListener("mouseover", function(event) {changeDisplay(event,"Valid_mdpN")});
+        document.getElementById('mdpN').addEventListener("mouseout", function(event) {changeDisplay(event,"Valid_mdpN")});
+    }
+
+    if (document.getElementById('mdpN_verif')!=null){
+        document.getElementById('mdpN_verif').addEventListener('input', () => {valid("mdpN_verif",8,[true,true,true,true,true])});
+        document.getElementById('mdpN_verif').addEventListener("mouseover", function(event) {changeDisplay(event,"Valid_mdpN_verif")});
+        document.getElementById('mdpN_verif').addEventListener("mouseout", function(event) {changeDisplay(event,"Valid_mdpN_verif")});
+    }
+</script>
+
+</main>
+<%- include('fragments/foot.ejs')%>
+

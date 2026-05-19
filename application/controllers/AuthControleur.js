@@ -123,7 +123,7 @@ exports.postMDPForgottent = async (req,res,next) => {
 
     
 
-    const password = Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10) + "" + existingUser.Nom + "" + Math.floor(Math.random() * 10) + "" +Math.floor(Math.random() * 10) + "" + existingUser.Prénom + "" + Math.floor(Math.random() * 10) + "" +Math.floor(Math.random() * 10)
+    const password = Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10) + "" + existingUser.Nom + "" + Math.floor(Math.random() * 10) + "-" +Math.floor(Math.random() * 10) + "" + existingUser.Prénom + "" + Math.floor(Math.random() * 10) + "" +Math.floor(Math.random() * 10)
 
 
     try {

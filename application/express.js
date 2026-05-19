@@ -15,6 +15,7 @@ const logoutRoutes = require('./routes/logout');
 const FormulaireRoutes = require('./routes/User');
 const ReprographeRoutes = require('./routes/Reprographe');
 const AdministrateurRoutes = require('./routes/Administrateur');
+const ProfilRoutes = require('./routes/Profil');
 
 
 mongoose.connect('mongodb://localhost:27017/Reprographe')
@@ -63,6 +64,7 @@ app.use(logoutRoutes);
 app.use(FormulaireRoutes);
 app.use(ReprographeRoutes);
 app.use(AdministrateurRoutes);
+app.use(ProfilRoutes);
 
 app.use(AccueilRoutes);
 
