@@ -5,8 +5,9 @@ const AuthControl = require("../controllers/AuthControleur");
 router.get('/Auth', (req,res,next) => {
     console.log('middleware auth', req.method);
     const erreur = req.query.Erreur;
+    const reussi = req.query.Reussi;
 
-    res.render('Auth',{pageTitle:"Authentification",Erreur:erreur});
+    res.render('Auth',{pageTitle:"Authentification",Erreur:erreur,Reussi:reussi});
 })
 
 router.post('/Auth',AuthControl.postAuth);
@@ -19,6 +20,8 @@ router.get('/Inscription', (req,res,next) => {
 })
 
 router.post('/Inscription',AuthControl.postInscription)
+
+router.post('/MdpForgottent',AuthControl.postMDPForgottent)
 
 
 module.exports = router;

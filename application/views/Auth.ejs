@@ -18,6 +18,11 @@
                     <br>
                     <br>
                 <%}%>
+                <% if(typeof(Reussi)!='undefined') {%>
+                    <h4 class="Reussi"><%=Reussi %></h4>
+                    <br>
+                    <br>
+                <%}%>
 
 
                <div class="info-bulle">
@@ -57,6 +62,23 @@
                     <a class="button" style="margin-left:10px;height: 70px;display: flex;align-items: center;" href="/Inscription">Inscription</a>
                 </div>
                 <input type="hidden" value="<%= csrfToken%>" name="_csrf">
+            </form>
+
+            <button class="button" onclick="document.getElementById('MDPForgottent').style.display = 'block'">Mot de passe oublié</button>
+            
+            <form id="MDPForgottent" style="display: none;" action="/MdpForgottent" method="POST">
+
+                <h1>Mot de passe oublié</h1>
+
+                <div class="info-bulle">
+                   <label for="Mail"><strong>Mail</strong>
+                       <input class="inputForm" type="email" name="Mail" id="Mail" required>
+                   </label>
+               </div>
+
+               <input class="button" type="submit" value="Envoie Mail" id="submit" style="height: 70px;">
+
+               <input type="hidden" value="<%= csrfToken%>" name="_csrf">
             </form>
        </div>
    </div>

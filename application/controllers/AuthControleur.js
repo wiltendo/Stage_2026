@@ -106,3 +106,64 @@ exports.postInscription= async (req,res,next) => {
         res.redirect('/Inscription?Erreur=Département Inconnu')
     }
 }
+
+exports.postMDPForgottent = async (req,res,next) => {
+    console.log('middleware MDP Forgottent ', req.method);
+    
+    const Mail = String(req.body.Mail).trim().replace(/[<>$]/g, "");
+
+    if (!emailRegex.test(Mail)) { 
+        return res.redirect('/Auth?Erreur=Email invalide'); 
+    }
+
+    const existingUser = await User.findOne({ Mail: req.body.Mail },{Nom:1,Prénom:1,_id:1});
+    if (!existingUser) {
+        return res.redirect('/Auth?Erreur=Email Inconnu');
+    }
+
+    
+
+    const password = Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10) + "" + existingUser.Nom + "" + Math.floor(Math.random() * 10) + "" +Math.floor(Math.random() * 10) + "" + existingUser.Prénom + "" + Math.floor(Math.random() * 10) + "" +Math.floor(Math.random() * 10)
+
+
+    try {
+        await mailjet
+        .post("send", {'version': 'v3.1'})
+        .request({
+            "Messages":[
+                    {
+                            "From": {
+                                    "Email": "w1ltend0.gary@gmail.com",
+                                    "Name": "Application Reprographe"
+                            },
+                            "To": [
+                                    {
+                                            "Email": req.body.Mail,
+                                            "Name": existingUser.Nom  + " " + existingUser.Prénom
+                                    }
+                            ],
+                            "Subject": "Comfirmation Inscription Site Reprographie",
+                            "HTMLPart": "Bonjour " + existingUser.Nom  +",<br><br>Aprés votre demande de mot de passe oublier votre mot de passe à été modifier <br> Votre nouveau mot de passe est : "+ password + "<br><br>Cordialement,<br>L'équipe Reprographie",
+                    }
+            ]
+        })
+        console.log("Mail ok")
+    } catch (err) {
+        console.log(err.statusCode);
+        return res.redirect('/Auth?Erreur='+err);
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 12);
+
+    try { 
+        const result = await User.updateOne(
+            { _id: existingUser._id,Mail:req.body.Mail},
+            { $set: {Mdp:hashedPassword } }
+        ) 
+    } catch (err){
+        console.log(err.statusCode);
+        return res.redirect('/Auth?Erreur='+err);
+    }
+
+    res.redirect('/Auth?Reussi=Mail Recupération Envoyer');
+}
