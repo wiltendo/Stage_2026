@@ -73,7 +73,7 @@ exports.postInscription= async (req,res,next) => {
                                                 "Name": req.body.name + " " + req.body.Prénom
                                         }
                                 ],
-                                "Subject": "Comfirmation Inscription Site Reprographie",
+                                "Subject": "Confirmation Inscription Site Reprographie",
                                 "HTMLPart": "Bonjour " + req.body.name +",<br><br>Votre compte a bien été créé sur notre plateforme.<br>Nous esperons que vous pourrez envoyer vos documents sans probléme.<br><br>Cordialement,<br>L'équipe Reprographie",
                         }
                 ]
@@ -110,20 +110,20 @@ exports.postInscription= async (req,res,next) => {
 exports.postMDPForgottent = async (req,res,next) => {
     console.log('middleware MDP Forgottent ', req.method);
     
-    const Mail = String(req.body.Mail).trim().replace(/[<>$]/g, "");
+    const Mail = String(req.body.Mail_recup).trim().replace(/[<>$]/g, "");
 
     if (!emailRegex.test(Mail)) { 
         return res.redirect('/Auth?Erreur=Email invalide'); 
     }
 
-    const existingUser = await User.findOne({ Mail: req.body.Mail },{Nom:1,Prénom:1,_id:1});
+    const existingUser = await User.findOne({ Mail: Mail },{Nom:1,Prénom:1,_id:1});
     if (!existingUser) {
         return res.redirect('/Auth?Erreur=Email Inconnu');
     }
 
     
 
-    const password = Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10) + "" + existingUser.Nom + "" + Math.floor(Math.random() * 10) + "-" +Math.floor(Math.random() * 10) + "" + existingUser.Prénom + "" + Math.floor(Math.random() * 10) + "" +Math.floor(Math.random() * 10)
+    const password = Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10) + "" + existingUser.Nom + "" + Math.floor(Math.random() * 10) + "-" +Math.floor(Math.random() * 10) + "" + existingUser.Prénom + "" + Math.floor(Math.random() * 10) + "" +Math.floor(Math.random() * 10);
 
 
     try {
@@ -142,8 +142,12 @@ exports.postMDPForgottent = async (req,res,next) => {
                                             "Name": existingUser.Nom  + " " + existingUser.Prénom
                                     }
                             ],
-                            "Subject": "Comfirmation Inscription Site Reprographie",
-                            "HTMLPart": "Bonjour " + existingUser.Nom  +",<br><br>Aprés votre demande de mot de passe oublier votre mot de passe à été modifier <br> Votre nouveau mot de passe est : "+ password + "<br><br>Cordialement,<br>L'équipe Reprographie",
+                            "Subject": "Réinitialisation du mot de passe - Site Reprographie",
+                            "HTMLPart": 
+                                "Bonjour " + existingUser.Nom + ",<br><br>" +
+                                "Suite à votre demande de réinitialisation de mot de passe, celui-ci a été modifié.<br>" +
+                                "Votre nouveau mot de passe est : <b>" + password + "</b><br><br>" +
+                                "Cordialement,<br>L'équipe Reprographie",
                     }
             ]
         })
@@ -165,5 +169,5 @@ exports.postMDPForgottent = async (req,res,next) => {
         return res.redirect('/Auth?Erreur='+err);
     }
 
-    res.redirect('/Auth?Reussi=Mail Recupération Envoyer');
+    res.redirect('/Auth?Reussi=Email de récupération envoyé');
 }

@@ -36,12 +36,12 @@ exports.postMdpChange = async (req,res,next) =>{
                 return res.redirect('/Profil?Erreur='+err);
             }
             
-            return res.redirect('/Profil?Reussi=Changement effectuer');
+            return res.redirect('/Profil?Reussi=Changement effectué');
 
         }else{
-            return res.redirect('/Profil?Erreur=Ancien Mot de passe Incorrect')
+            return res.redirect('/Profil?Erreur=Mot de passe actuel incorrect')
         }
     }else{
-        return res.redirect('/Profil?Erreur=User Erreur')
+        return res.redirect('/Profil?Erreur=Utilisateur introuvable')
     }
 }
