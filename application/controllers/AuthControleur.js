@@ -109,7 +109,7 @@ exports.postInscription= async (req,res,next) => {
 
 exports.postMDPForgottent = async (req,res,next) => {
     console.log('middleware MDP Forgottent ', req.method);
-    
+    console.log(req.body.Mail_recup);
     const Mail = String(req.body.Mail_recup).trim().replace(/[<>$]/g, "");
 
     if (!emailRegex.test(Mail)) { 
@@ -138,7 +138,7 @@ exports.postMDPForgottent = async (req,res,next) => {
                             },
                             "To": [
                                     {
-                                            "Email": req.body.Mail,
+                                            "Email": Mail,
                                             "Name": existingUser.Nom  + " " + existingUser.Prénom
                                     }
                             ],
