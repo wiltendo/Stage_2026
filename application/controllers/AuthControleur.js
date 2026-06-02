@@ -204,9 +204,10 @@ exports.postMDPForgottent = async (req,res,next) => {
 
     try { 
         const result = await User.updateOne(
-            { _id: existingUser._id,Mail:req.body.Mail},
+            { Mail:Mail},
             { $set: {Mdp:hashedPassword } }
         ) 
+        console.log(result)
     } catch (err){
         console.log(err.statusCode);
         return res.redirect('/Auth?Erreur='+err);
