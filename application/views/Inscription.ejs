@@ -1,6 +1,7 @@
 <%- include('fragments/head.ejs')%>
 <link rel="stylesheet" href="/css/inscription_connexion.css">
 <script src="afficherMDP.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </head>
 <body>
@@ -109,6 +110,11 @@
                 </div>
 
                 <br>
+
+                <div
+                class="g-recaptcha"
+                data-sitekey="6LcT6ggtAAAAADR1p-JY_kk2ZfzCooNEn4-WBraM"
+                ></div>
 
                 <div style="display: flex;">
                     <input class="button" type="submit" value="S'inscrire" id="submit" style="height: 70px;">

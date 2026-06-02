@@ -1,5 +1,6 @@
 const User = require('../model/dataUser');
 const bcrypt = require('bcrypt');
+const axios = require("axios");
 
 apikey = "4e4c66acd3788ea5eba880259980ddee";
 apisecret = "5783ad7b6a07d382642f8e0eb42d52ae"
@@ -10,6 +11,27 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 
 exports.postAuth = async (req,res,next) => {
+    try {
+        const recaptchaResponse = req.body["g-recaptcha-response"];
+        if (!recaptchaResponse) return res.redirect("/Auth?Erreur=Veillez completer le reCAPTCHA");
+        const verification = await axios.post(
+        "https://www.google.com/recaptcha/api/siteverify",
+        null,
+        {
+            params: {
+            secret: "6LcT6ggtAAAAAMkZugkUtJYTx-6XutikGebGDpxm",
+            response: recaptchaResponse,
+            remoteip: req.ip,
+            },
+        }
+        );
+        if (!verification.data.success) return res.redirect("/Auth??Erreur=reCAPTCHA échoué. Veillez réessaiyer.");
+
+    } catch (error) {
+        console.log(error);
+        res.render("home", { error: error.message || "INTERNAL SERVER ERROR" })
+    }
+
     res.locals.log = req.session.isLog;
     console.log('middleware Authentification', req.method);
 
@@ -38,11 +60,31 @@ exports.postAuth = async (req,res,next) => {
 
 exports.postInscription= async (req,res,next) => {
     console.log('middleware Inscription', req.method);
+
+    try {
+        const recaptchaResponse = req.body["g-recaptcha-response"];
+        if (!recaptchaResponse) return res.redirect("/Inscription?Erreur=Veillez completer le reCAPTCHA");
+        const verification = await axios.post(
+        "https://www.google.com/recaptcha/api/siteverify",
+        null,
+        {
+            params: {
+            secret: "6LcT6ggtAAAAAMkZugkUtJYTx-6XutikGebGDpxm",
+            response: recaptchaResponse,
+            remoteip: req.ip,
+            },
+        }
+        );
+        if (!verification.data.success) return res.redirect("/Inscription?Erreur=reCAPTCHA échoué. Veillez réessaiyer.");
+
+    } catch (error) {
+        console.log(error);
+        res.render("home", { error: error.message || "INTERNAL SERVER ERROR" })
+    }
     
     const Mail = String(req.body.Mail).trim().replace(/[<>$]/g, "");
     if(req.body.password != req.body.password_verif){
-        console.log(req.body.password);
-        console.log(req.body.password_verif);
+
         return res.redirect('/Inscription?Erreur=Verification Mot de passe Echoué')
     }
 
@@ -110,6 +152,28 @@ exports.postInscription= async (req,res,next) => {
 exports.postMDPForgottent = async (req,res,next) => {
     console.log('middleware MDP Forgottent ', req.method);
     console.log(req.body.Mail_recup);
+
+    try {
+        const recaptchaResponse = req.body["g-recaptcha-response"];
+        if (!recaptchaResponse) return res.redirect("/Auth??Erreur=Veillez completer le reCAPTCHA");
+        const verification = await axios.post(
+        "https://www.google.com/recaptcha/api/siteverify",
+        null,
+        {
+            params: {
+            secret: "6LcT6ggtAAAAAMkZugkUtJYTx-6XutikGebGDpxm",
+            response: recaptchaResponse,
+            remoteip: req.ip,
+            },
+        }
+        );
+        if (!verification.data.success) return res.redirect("/Auth??Erreur=reCAPTCHA échoué. Veillez réessaiyer.");
+
+    } catch (error) {
+        console.log(error);
+        res.render("home", { error: error.message || "INTERNAL SERVER ERROR" })
+    }
+
     const Mail = String(req.body.Mail_recup).trim().replace(/[<>$]/g, "");
 
     if (!emailRegex.test(Mail)) { 
