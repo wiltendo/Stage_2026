@@ -19,7 +19,7 @@ exports.postAuth = async (req,res,next) => {
         null,
         {
             params: {
-            secret: "6LcT6ggtAAAAAMkZugkUtJYTx-6XutikGebGDpxm",
+            secret: "6Lfl9QgtAAAAALKoN0bhAcfEi9ltVpRzG_hCZ0rg",
             response: recaptchaResponse,
             remoteip: req.ip,
             },
