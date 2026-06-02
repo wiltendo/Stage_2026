@@ -17,7 +17,7 @@
     <%}%>
     <% console.log(listeRequeteUser);
     if (listeRequeteUser.length == 0) {%>
-        <p>Il n'y a pas de requete</p>
+        <p>Il n’y a pas de requête</p>
     <% } else { %>
     <table class="tableau_bord" border="1" >
         <thead>
@@ -47,7 +47,7 @@
                     <% if(requete.Status == "Ouvert"){%>
                         <td class="Espace_table" style="background-color: lightcoral;color: black;"><strong>Ouvert</strong></td>  
                     <%} else if (requete.Status == "En cours de traitement") {%>
-                        <td class="Espace_table" style="background-color: lightsalmon;color: black;"><strong>En cours de traitement</strong></td>  
+                        <td class="Espace_table" style="background-color: rgb(233, 233, 145);color: black;"><strong>En cours de traitement</strong></td>  
                     <%} else {%>
                         <td class="Espace_table" style="background-color: lightgreen;color: black;"><strong>Disponible</strong></td>  
                     <%}%>
